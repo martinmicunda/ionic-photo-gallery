@@ -26,3 +26,19 @@ node_modules
 
 # Users Environment Variables
 .lock-wscript
+
+# DevOps
+*.box
+.vagrant
+
+# IDEs
+.idea/
+
+.envrc
+
+.bash_history
+.cache
+.config
+.ionic
+.node-gyp
+.npm

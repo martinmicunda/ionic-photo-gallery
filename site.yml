@@ -1,0 +1,12 @@
+---
+- name: Install io.js, mongodb and consul
+  hosts: all
+  sudo: yes
+  roles:
+    - martinmicunda.common
+    - martinmicunda.iojs
+    - laggyluke.direnv
+    - Stouts.mongodb
+    - DavidWittman.redis
+  vars:
+    iojs_version: 1.6.1
