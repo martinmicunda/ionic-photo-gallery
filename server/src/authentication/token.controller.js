@@ -8,7 +8,7 @@
  */
 var jwt    = require('jsonwebtoken');
 var redis  = require('../config/redis');
-var config = require('../config');
+var config = require('../config/config');
 var logger = require('mm-node-logger')(module);
 
 /**

@@ -61,7 +61,7 @@ gulp.task('serve', function () {
         stdout: false,
         stderr: false,
         nodeArgs: ['--debug', '--harmony_arrow_functions', '--harmony_modules'],
-        watch: ['lib/**/*', 'index.js']
+        watch: ['server/src/**/*', 'index.js']
     };
 
     $.nodemon(options)

@@ -7,8 +7,8 @@ var colors  = require('colors');
 var logger  = require('mm-node-logger')(module);
 var mongodb = require('mm-mongoose-connection');
 var pkg     = require('./package.json');
-var config  = require('./server/config/config');
-var express = require('./server/config/express');
+var config  = require('./server/src/config/config');
+var express = require('./server/src/config/express');
 
 // Initialize mongoose
 mongodb(config.mongodb, function startServer(db) {

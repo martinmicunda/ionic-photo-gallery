@@ -4,13 +4,14 @@
  * Module dependencies.
  */
 var path           = require('path');
-var config         = require('./config');
 var morgan         = require('morgan');
 var helmet         = require('helmet');
 var logger         = require('mm-node-logger')(module);
 var express        = require('express');
 var bodyParser     = require('body-parser');
 var methodOverride = require('method-override');
+var pathUtils      = require('../utils/path-utils');
+var config         = require('./config');
 
 /**
  * Initialize application middleware.
@@ -86,6 +87,34 @@ function initCrossDomain(app) {
 }
 
 /**
+ * Configure app modules config files.
+ *
+ * @method initGonfig
+ * @param {Object} app The express application
+ * @private
+ */
+function initGonfig(app) {
+    // Globbing config files
+    pathUtils.getGlobbedPaths(path.join(__dirname, '../**/*.config.js')).forEach(function (routePath) {
+        require(path.resolve(routePath))(app);
+    });
+}
+
+/**
+ * Configure app routes.
+ *
+ * @method initRoutes
+ * @param {Object} app The express application
+ * @private
+ */
+function initRoutes(app) {
+    // Globbing routing files
+    pathUtils.getGlobbedPaths(path.join(__dirname, '../**/*.routes.js')).forEach(function (routePath) {
+        require(path.resolve(routePath))(app);
+    });
+}
+
+/**
  * Configure error handling.
  *
  * @method initErrorRoutes
@@ -131,6 +160,12 @@ function init(db) {
 
     // Initialize CORS
     initCrossDomain(app);
+
+    // Initialize config
+    initGonfig(app);
+
+    // Initialize routes
+    initRoutes(app);
 
     // Initialize error routes
     initErrorRoutes(app);
