@@ -1,0 +1,43 @@
+<ion-side-menus enable-menu-with-back-views="false">
+    <ion-side-menu-content class="post-size-14px">
+        <ion-nav-bar class="bar-assertive">
+            <ion-nav-back-button>
+            </ion-nav-back-button>
+            <ion-nav-buttons side="left">
+                <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+                </button>
+            </ion-nav-buttons>
+        </ion-nav-bar>
+        <ion-nav-view name="menuContent"></ion-nav-view>
+    </ion-side-menu-content>
+
+    <ion-side-menu side="left" expose-aside-when="large">
+        <ion-content>
+            <ion-list>
+                <!-- TODO: ver si ponemos o no 'nav-clear' -->
+                <ion-item class="heading-item item item-avatar">
+                    <img ng-src="https://s3.amazonaws.com/uifaces/faces/twitter/brynn/128.jpg">
+                    <h2 class="greeting">Hi Brynn</h2>
+                    <p class="message">Welcome back</p>
+                </ion-item>
+                <ion-item class="item-icon-left" nav-clear menu-close href="#/app/">
+                    <i class="icon ion-home"></i>
+                    <h2 class="menu-text">My Gallery</h2>
+                </ion-item>
+                <ion-item class="item-icon-left" nav-clear menu-close href="#/app/miscellaneous">
+                    <i class="icon ion-asterisk"></i>
+                    <h2 class="menu-text">Galleries</h2>
+                </ion-item>
+                <ion-item class="item-icon-left" nav-clear menu-close href="#/app/feeds-categories">
+                    <i class="icon ion-radio-waves"></i>
+                    <h2 class="menu-text">My Profile</h2>
+                </ion-item>
+                <ion-item class="item-icon-left" nav-clear menu-close ui-sref="app.users-list">
+                    <i class="icon ion-social-wordpress"></i>
+                    <h2 class="menu-text">Users</h2>
+                </ion-item>
+            </ion-list>
+        </ion-content>
+        <button ng-controller="AuthenticationCtrl as vm" ng-click="vm.signOut()">Sign Out</button>
+    </ion-side-menu>
+</ion-side-menus>

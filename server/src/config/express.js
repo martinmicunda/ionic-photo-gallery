@@ -3,6 +3,7 @@
 /**
  * Module dependencies.
  */
+var cors           = require('cors');
 var path           = require('path');
 var morgan         = require('morgan');
 var helmet         = require('helmet');
@@ -71,16 +72,15 @@ function initHelmetHeaders(app) {
  */
 function initCrossDomain(app) {
     // setup CORS
+    app.use(cors());
     app.use(function(req, res, next) {
         // Website you wish to allow to connect
         res.set('Access-Control-Allow-Origin', '*');
-        // Set to true if you need the website to include cookies in the requests sent
-        // to the API (e.g. in case you use sessions)
-        res.set('Access-Control-Allow-Credentials', true);
         // Request methods you wish to allow
         res.set('Access-Control-Allow-Methods', 'GET, POST, DELETE, PUT');
         // Request headers you wish to allow
-        res.set('Access-Control-Allow-Headers', 'X-Requested-With, Content-Type, Authorization');
+        res.set('Access-Control-Allow-Headers', 'Origin, Accept, Content-Type, X-Requested-With, X-CSRF-Token');
+
         // Pass to next layer of middleware
         next();
     });
@@ -145,10 +145,9 @@ function initErrorRoutes(app) {
  * Initialize the Express application.
  *
  * @method init
- * @param {Object} db Database instance
  * @returns {Object} the express application
  */
-function init(db) {
+function init() {
     // Initialize express app
     var app = express();
 
@@ -173,6 +172,4 @@ function init(db) {
     return app;
 }
 
-module.exports = {
-    init: init
-};
+module.exports.init = init;

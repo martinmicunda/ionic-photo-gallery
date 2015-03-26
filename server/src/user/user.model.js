@@ -18,7 +18,7 @@ var validateLocalStrategyProperty = function(property) {
  * A Validation function for local strategy password
  */
 var validateLocalStrategyPassword = function(password) {
-    return (this.provider !== 'local' || (password && password.length > 6));
+    return (this.provider !== 'local' || (password && password.length >= 6));
 };
 
 /**
@@ -62,8 +62,6 @@ var UserSchema = new Schema({
         type: String,
         required: 'Provider is required'
     },
-    providerData: {},
-    additionalProvidersData: {},
     updated: {
         type: Date
     },
@@ -72,36 +70,6 @@ var UserSchema = new Schema({
         default: Date.now
     }
 });
-
-/**
- * Virtuals
- */
-//UserSchema
-//    .virtual('password')
-//    .set(function(password) {
-//        this._password = password;
-////        this.hashedPassword = this.encryptPassword(password);
-//    })
-//    .get(function() {
-//        return this._password;
-//    });
-
-// Public profile information
-UserSchema
-    .virtual('fullName')
-    .get(function() {
-        return this.firstName + ' ' + this.lastName;
-    });
-
-// Non-sensitive info we'll be putting in the token
-UserSchema
-    .virtual('token')
-    .get(function() {
-        return {
-            '_id': this._id,
-            'firstName': this.firstName
-        };
-    });
 
 /**
  * Validations
@@ -117,13 +85,13 @@ UserSchema
     }, 'Email cannot be blank');
 
 // Validate empty password
-//UserSchema
-//    .path('hashedPassword')
-//    .validate(function(hashedPassword) {
-//        // if you are authenticating by any of the oauth strategies, don't validate
-//        if (authTypes.indexOf(this.provider) !== -1) return true;
-//        return hashedPassword.length;
-//    }, 'Password cannot be blank');
+UserSchema
+    .path('password')
+    .validate(function(password) {
+        // if you are authenticating by any of the oauth strategies, don't validate
+        if (authTypes.indexOf(this.provider) !== -1) return true;
+        return password.length;
+    }, 'Password cannot be blank');
 
 // Validate email is not taken
 UserSchema
@@ -155,7 +123,7 @@ UserSchema.pre('save', function(next) {
 
         // TODO (martin): is it good idea to store salt?
         // store salt
-//        this.salt = salt;
+        user.salt = salt;
 
         // hash the password using our new salt
         bcrypt.hash(user.password, salt, function(err, hash) {

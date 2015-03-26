@@ -1,0 +1,42 @@
+<!--<ion-tabs class="tabs-icon-top">-->
+    <!--&lt;!&ndash; Login Tab &ndash;&gt;-->
+    <!--<ion-tab title="Sign In" icon-on="ion-ios7-locked"-->
+             <!--icon-on="ion-ios7-locked-outline" ui-sref="authentication.signin">-->
+        <!--<ion-nav-view name="signin"></ion-nav-view>-->
+    <!--</ion-tab>-->
+
+
+    <!--&lt;!&ndash; Register Tab &ndash;&gt;-->
+    <!--<ion-tab title="Sign Up" icon-on="ion-ios7-personadd"-->
+             <!--icon-off="ion-ios7-personadd-outline" ui-sref="authentication.signup">-->
+        <!--<ion-nav-view name="signup"></ion-nav-view>-->
+    <!--</ion-tab>-->
+<!--</ion-tabs>-->
+
+<ion-view hide-nav-bar="true" hide-back-button="true">
+
+    <ion-content class="main-page home-bg content-bg overlay-content" scroll="false">
+        <div class="logo">
+        </div>
+
+        <div class="slogan">
+            <p>
+                A hybrid (ionic, cordova) photo gallery app powered by a Node.js server!
+            </p>
+
+            <p>
+                By <a class="pseudo-link" ng-click="vm.launchMartinMicundaPage()">@martinmicunda</a>
+            </p>
+        </div>
+
+        <button class="button button-blue" ui-sref="signin">
+            Sign In
+        </button>
+
+        <button class="button button-transparent" ui-sref="signup">
+            Sign up
+        </button>
+
+    </ion-content>
+
+</ion-view>

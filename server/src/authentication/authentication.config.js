@@ -3,10 +3,9 @@
 /**
  * Module dependencies.
  */
-//var User     = require('mongoose').model('User');
-    var User = {};
 var path      = require('path');
 var passport  = require('passport');
+var User      = require('../user/user.model.js');
 var config    = require('../config/config');
 var pathUtils = require('../utils/path-utils');
 

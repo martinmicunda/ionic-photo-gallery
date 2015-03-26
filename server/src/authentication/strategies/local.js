@@ -19,7 +19,7 @@ function localStrategy(User, config) {
 
                 // no user found with that email
                 if (!user) {
-                    return callback(null, false, { message: 'This email is not registered.' });
+                    return callback(null, false, { message: 'The email is not registered.' });
                 }
                 // make sure the password is correct
                 user.comparePassword(password, function(err, isMatch) {
@@ -27,7 +27,7 @@ function localStrategy(User, config) {
 
                     // password did not match
                     if (!isMatch) {
-                        return callback(null, false, { message: 'This password is not correct.' });
+                        return callback(null, false, { message: 'The password is not correct.' });
                     }
 
                     // success

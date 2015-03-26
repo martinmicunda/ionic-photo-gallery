@@ -11,3 +11,18 @@ exports.get = function(req,res) {
         res.json(users);
     });
 };
+
+/**
+ * HTTP GET /users
+ * Returns: the list of users
+ */
+exports.findAll = function(req, res) {
+    console.info('Retrieving all users');
+    User.find(function(err, users) {
+        if (!err) {
+            return res.json(users);
+        } else {
+            return console.log(err);
+        }
+    });
+};

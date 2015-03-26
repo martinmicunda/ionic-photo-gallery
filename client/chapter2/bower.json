@@ -2,6 +2,8 @@
   "name": "chapter2",
   "private": "true",
   "devDependencies": {
-    "ionic": "driftyco/ionic-bower#1.0.0-rc.1"
+    "ionic": "driftyco/ionic-bower#1.0.0-rc.1",
+      "restangular": "1.4.0",
+      "angular-local-storage": "0.1.5"
   }
 }

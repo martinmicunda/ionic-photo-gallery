@@ -32,13 +32,15 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
     # mongodb
     #config.vm.network "forwarded_port", guest: 27017, host: 27017
+    # redis
+    #config.vm.network "forwarded_port", guest: 6379, host: 6379
 
     config.vm.synced_folder ".", "/home/vagrant", mode: '777'
-    config.vm.network "private_network", ip: "192.168.33.10"
+    config.vm.network "private_network", ip: "192.168.33.20"
 
     # Provision the VirtualBoxes with Ansible
     config.vm.provision "ansible" do |ansible|
-        ansible.playbook = "site.yml"
+        ansible.playbook = "ansible/playbook.yml"
         ansible.raw_arguments = ['-v']
     end
 

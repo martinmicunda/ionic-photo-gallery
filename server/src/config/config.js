@@ -16,7 +16,7 @@ config.server = {
 
 // MongoDB settings
 config.mongodb = {
-    dbURI: "mongodb://127.0.0.1:27017/ionic-photos-gallery",
+    dbURI: "mongodb://127.0.0.1:27017/ionic-photo-gallery",
     dbOptions: {"user": "", "pass": ""}
 };
 

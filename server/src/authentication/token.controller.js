@@ -9,7 +9,6 @@
 var jwt    = require('jsonwebtoken');
 var redis  = require('../config/redis');
 var config = require('../config/config');
-var logger = require('mm-node-logger')(module);
 
 /**
  * Extract the token from the header Authorization.
@@ -100,7 +99,6 @@ function expireToken(headers, cb) {
             return cb(null, true);
         });
     } catch (err) {
-        logger.error(err);
         return cb(err);
     }
 }
@@ -128,7 +126,6 @@ function verifyToken(headers, cb) {
             return cb(null, JSON.parse(userData));
         });
     } catch (err) {
-        logger.error(err);
         return cb(err);
     }
 }

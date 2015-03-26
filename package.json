@@ -42,7 +42,6 @@
   "dependencies": {
     "express": "^4.12.3",
     "mm-node-logger": "^0.0.*",
-    "mm-mongoose-connection": "^0.0.*",
     "colors": "^1.0.3",
     "morgan": "^1.5.2",
     "helmet": "^0.7.0",
@@ -56,7 +55,8 @@
     "path": "0.11.14",
     "glob": "5.0.3",
     "lodash": "3.5.0",
-      "bcryptjs": "2.1.0"
+      "bcryptjs": "2.1.0",
+      "cors": "2.5.3"
   },
   "devDependencies": {
     "nsp": "^1.0.0",
