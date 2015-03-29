@@ -1,12 +1,35 @@
 ---
-- name: Install io.js, mongodb and consul
+- name: Install io.js, direnv, mongodb and redis
   hosts: all
   sudo: yes
   roles:
-    - martinmicunda.common
-    - martinmicunda.iojs
-    - laggyluke.direnv
-    - Stouts.mongodb
-    - DavidWittman.redis
+#    - martinmicunda.common
+#    - martinmicunda.iojs
+#    - laggyluke.direnv
+#    - Stouts.mongodb
+#    - DavidWittman.redis
+#    - williamyeh.oracle-java
+#    - { role: nickp666.android-sdk }
+    - ionic
+  tasks:
+    - name: Install server npm packages
+      command: "npm install"
+      args:
+        chdir: /home/vagrant/ionic-photo-gallery/server
+    - name: Install client npm packages
+      command: "npm install"
+      args:
+        chdir: /home/vagrant/ionic-photo-gallery/ionic
+    - name: Start app server
+      command: "npm start"
+      args:
+        chdir: /home/vagrant/ionic-photo-gallery/server
+    - name: Start ionic app
+      command: "npm start"
+      args:
+        chdir: /home/vagrant/ionic-photo-gallery/ionic
   vars:
     iojs_version: 1.6.1
+    java_version: 7
+    android_sdk_download_location: http://dl.google.com/android/android-sdk_r24.1.2-linux.tgz
+

@@ -3,7 +3,7 @@
         xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>ionic-photo-gallery</name>
     <description>
-        A hybrid app with authentication that allows registered users view a gallery of photos they have uploaded via the app.
+        A hybrid app with authentication that allows registered users view a gallery of photos they have uploaded via the camera phone.
     </description>
     <author email="martinmicunda@hotmail.com" href="http://martinmicunda.com/">
         Martin Micunda

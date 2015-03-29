@@ -1,7 +1,7 @@
 Ionic Photo Gallery
 ======================
 
-A hybrid app with authentication that allows registered users view a gallery of photos they have uploaded via the app.
+A hybrid app with authentication that allows registered users view a gallery of photos they have uploaded via the camera phone.
 
 ## License
 

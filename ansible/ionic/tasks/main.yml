@@ -1,0 +1,6 @@
+---
+- name: Install Cordova
+  npm: name=cordova global=yes version={{ cordova_version }}
+
+- name: Install Ionic
+  npm: name=ionic global=yes version={{ ionic_version }}
