@@ -1,3 +1,14 @@
+/**
+ * This module follow best practice for creating, maintaining and using a Mongoose connection like:
+ *  - open the connection when the app process start
+ *  - start the app server when after the database connection is open (optional)
+ *  - monitor the connection events (`connected`, `error` and `disconnected`)
+ *  - close the connection when the app process terminates
+ *
+ * @author    Martin Micunda {@link http://martinmicunda.com}
+ * @copyright Copyright (c) 2015, Martin Micunda
+ * @license	  The MIT License {@link http://opensource.org/licenses/MIT}
+ */
 'use strict';
 
 /**
@@ -8,13 +19,9 @@ var mongoose = require('mongoose');
 var config = require('./config');
 
 /**
- * This module follow best practice for creating, maintaining and using a Mongoose connection like:
- *  - open the connection when the app process start
- *  - start the app server when after the database connection is open (optional)
- *  - monitor the connection events (`connected`, `error` and `disconnected`)
- *  - close the connection when the app process terminates
+ * Create mongoose connection.
  *
- * @param {*=} cb - the callback that start server
+ * @param {*=} cb The callback that start server
  */
 function createMongooseConnection(cb) {
     // create the database connection

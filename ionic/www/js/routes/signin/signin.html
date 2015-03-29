@@ -1,0 +1,66 @@
+<!--<ion-nav-view name="signin">-->
+<!--<ion-header-bar class="bar-positive">-->
+    <!--<h1 class="title">Sign In</h1>-->
+<!--</ion-header-bar>-->
+
+<!--<ion-content class="has-header padding">-->
+    <!--<form class="list">-->
+        <!--<label class="item item-input">-->
+            <!--<span class="input-label">Email</span>-->
+            <!--<input type="text" ng-model="credentials.email">-->
+        <!--</label>-->
+        <!--<label class="item item-input">-->
+            <!--<span class="input-label">Password</span>-->
+            <!--<input type="password" ng-model="credentials.password">-->
+        <!--</label>-->
+        <!--<label class="item item-input">-->
+            <!--<button class="button button-block button-positive" ng-click="vm.signIn(credentials)">-->
+                <!--Sign In-->
+            <!--</button>-->
+        <!--</label>-->
+    <!--</form>-->
+    <!--<form method="post" name="loginForm" submit="vm.signIn(credentials)" submitted="vm.submitted" novalidate-->
+          <!--form-autofill-fix shake-that>-->
+        <!--<div class="field">-->
+            <!--<input type="email" name="email" placeholder="Email" ng-model="credentials.email" required />-->
+            <!--<i class="fa fa-envelope fa-lg"></i>-->
+        <!--</div>-->
+        <!--<div class="field">-->
+            <!--<input type="password" name="password" placeholder="Password" ng-model="credentials.password" required />-->
+            <!--<i class="fa fa-lock fa-lg"></i>-->
+        <!--</div>-->
+
+        <!--<div class="submit">-->
+            <!--<button type="submit" name="submit"><i class="fa fa-arrow-right fa-lg"></i></button>-->
+        <!--</div>-->
+    <!--</form>-->
+<!--</ion-content>-->
+
+
+<ion-view title="Sign In">
+    <ion-content class="main-login-page content-bg overlay-content" scroll="false" >
+        <form name="loginForm">
+            <div class="list">
+                <label class="item item-input username">
+                    <input type="text" placeholder="Username" ng-model="credentials.email">
+                </label>
+
+                <label class="item item-input lock">
+                    <input type="password" placeholder="Password" ng-model="credentials.password">
+                </label>
+            </div>
+
+            <button class="button button-full button-blue" ng-click="vm.signIn(credentials)">
+                SIGN IN
+            </button>
+
+            <!--<button class="button button-full button-twitter hide-on-keyboard-open" ng-click="authenticate('twitter')">-->
+                <!--SIGN IN WITH TWITTER-->
+            <!--</button>-->
+
+            <!--<button class="button button-full button-instagram hide-on-keyboard-open" ng-click="authenticate('instagram')">-->
+                <!--SIGN IN WITH INSTAGRAM-->
+            <!--</button>-->
+        </form>
+    </ion-content>
+</ion-view>

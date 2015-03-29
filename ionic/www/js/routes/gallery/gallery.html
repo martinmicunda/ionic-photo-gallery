@@ -1,0 +1,16 @@
+<ion-header-bar class="bar-positive">
+    <h1 class="title">Gallery</h1>
+</ion-header-bar>
+
+<ion-content class="has-header padding">
+    <div class="list">
+        Gallery
+    </div>
+    <ion-list>
+        <ion-item ng-repeat="image in vm.images track by $index">
+            <p> {{image.fileName}} {{image.url}} </p>
+            <img ng-src="http://192.168.0.100:3000/{{image.url}}">
+        </ion-item>
+    </ion-list>
+</ion-content>
+

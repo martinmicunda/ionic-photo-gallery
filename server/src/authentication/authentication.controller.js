@@ -1,5 +1,15 @@
+/**
+ * Authentication controller.
+ *
+ * @author    Martin Micunda {@link http://martinmicunda.com}
+ * @copyright Copyright (c) 2015, Martin Micunda
+ * @license	  The MIT License {@link http://opensource.org/licenses/MIT}
+ */
 'use strict';
 
+/**
+ * Module dependencies.
+ */
 var logger   = require('mm-node-logger')(module);
 var passport = require('passport');
 var token    = require('./token.controller.js');
@@ -8,9 +18,11 @@ var User     = require('../user/user.model.js');
 /**
  * Signin with email after passport authentication.
  *
- * @param req
- * @param res
- * @param next
+ * @param {Object} req  The request object
+ * @param {Object} res  The request object
+ * @param {Object} next The request object
+ * @returns {Object} the new created JWT token
+ * @api public
  */
 function signin(req, res, next) {
     passport.authenticate('local', function (err, user, info) {
@@ -32,6 +44,13 @@ function signin(req, res, next) {
     })(req, res, next)
 }
 
+/**
+ * Signout user and expire token.
+ *
+ * @param {Object} req  The request object
+ * @param {Object} res  The request object
+ * @api public
+ */
 function signout(req, res) {
     token.expireToken(req.headers, function(err, success) {
         if (err) {
@@ -49,18 +68,18 @@ function signout(req, res) {
 }
 
 /**
- * Create new user
+ * Create new user and login user in.
  *
- * @param {Object} req the request object
- * @param {Object} res the response object
- * @returns {*}
+ * @param {Object} req The request object
+ * @param {Object} res The response object
+ * @returns {Object} the new created JWT token
+ * @api public
  */
 function signup(req, res) {
     var email = req.body.email || '';
     var password = req.body.password || '';
-    var passwordConfirmation = req.body.passwordConfirmation || '';
 
-    if (email == '' || password == '' || password != passwordConfirmation) {
+    if (email == '' || password == '') {
         return res.sendStatus(400);
     }
 
@@ -92,11 +111,13 @@ function signup(req, res) {
 }
 
 /**
- * Middleware to verify the token and attaches the user object to the request if authenticated.
+ * Middleware to verify the token and attaches the user object
+ * to the request if authenticated.
  *
- * @param req
- * @param res
- * @param next
+ * @param {Object} req  The request object
+ * @param {Object} res  The request object
+ * @param {Object} next The request object
+ * @api public
  */
 function isAuthenticated(req, res, next) {
     token.verifyToken(req.headers, function(next, err, data) {

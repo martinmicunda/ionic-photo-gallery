@@ -1,28 +1,57 @@
+/**
+ * User controller.
+ *
+ * @author    Martin Micunda {@link http://martinmicunda.com}
+ * @copyright Copyright (c) 2015, Martin Micunda
+ * @license	  The MIT License {@link http://opensource.org/licenses/MIT}
+ */
 'use strict';
 
-var User = require('./user.model.js');
-
-exports.get = function(req,res) {
-    // get all the bears (accessed at GET http://localhost:8080/api/bears)
-    User.find(function(err, users) {
-        if (err)
-            res.send(err);
-
-        res.json(users);
-    });
-};
+/**
+ * Module dependencies.
+ */
+var logger = require('mm-node-logger')(module);
+var User   = require('./user.model.js');
 
 /**
- * HTTP GET /users
- * Returns: the list of users
+ * Find an user by id.
+ *
+ * @param {Object} req The request object
+ * @param {Object} res The request object
+ * @returns {Object} the user corresponding to the specified id
+ * @api public
  */
-exports.findAll = function(req, res) {
-    console.info('Retrieving all users');
-    User.find(function(err, users) {
-        if (!err) {
-            return res.json(users);
+function findById(req, res) {
+    return User.findById(req.params.id, 'firstName lastName email profileImageURL', function (err, user) {
+        if (err) {
+            logger.error(err.message);
+            return res.status(400).send(err);
         } else {
-            return console.log(err);
+            res.json(user);
         }
     });
+}
+
+/**
+ * List of users.
+ *
+ * @param {Object} req The request object
+ * @param {Object} res The request object
+ * @returns {Array} the list of users
+ * @api public
+ */
+function findAll(req, res) {
+    User.find(function(err, users) {
+        if (err) {
+            logger.error(err.message);
+            return res.status(400).send(err);
+        } else {
+            res.json(users);
+        }
+    });
+}
+
+module.exports = {
+    findById: findById,
+    findAll: findAll
 };

@@ -1,10 +1,19 @@
+/**
+ * User model.
+ *
+ * @author    Martin Micunda {@link http://martinmicunda.com}
+ * @copyright Copyright (c) 2015, Martin Micunda
+ * @license	  The MIT License {@link http://opensource.org/licenses/MIT}
+ */
 'use strict';
 
+/**
+ * Module dependencies.
+ */
+var bcrypt   = require('bcryptjs');
 var mongoose = require('mongoose');
-var Schema = mongoose.Schema;
-var bcrypt = require('bcryptjs');
-var SALT_WORK_FACTOR = 10;
 
+var SALT_WORK_FACTOR = 10;
 var authTypes = ['github', 'twitter', 'facebook', 'google'];
 
 /**
@@ -24,7 +33,7 @@ var validateLocalStrategyPassword = function(password) {
 /**
  * User Schema
  */
-var UserSchema = new Schema({
+var UserSchema = new mongoose.Schema({
     firstName: {
         type: String,
         trim: true,
@@ -74,7 +83,6 @@ var UserSchema = new Schema({
 /**
  * Validations
  */
-
 // Validate empty email
 UserSchema
     .path('email')
@@ -137,11 +145,11 @@ UserSchema.pre('save', function(next) {
 });
 
 /**
- * Check if the passwords are the same
+ * Check if the passwords are the same.
  *
- * @param {String} password
- * @return {Boolean}
- * @api public
+ * @param {String}   password The user password
+ * @param {Function} cb       Callback function
+ * @returns {Function} callback function `callback(null, true)` if password matched
  */
 UserSchema.methods.comparePassword = function(password, cb) {
     bcrypt.compare(password, this.password, function(err, isMatch) {

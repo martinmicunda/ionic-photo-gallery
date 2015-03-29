@@ -1,8 +1,19 @@
+/**
+ * An application configuration.
+ *
+ * @author    Martin Micunda {@link http://martinmicunda.com}
+ * @copyright Copyright (c) 2015, Martin Micunda
+ * @license	  The MIT License {@link http://opensource.org/licenses/MIT}
+ */
 'use strict';
 
 var config = {};
 
+config.uploadFilesInMemory = false;
+
 config.environment = process.env.NODE_ENV || 'development';
+
+// Token settings
 config.token = {
     secret: process.env.TOKEN_SECRET || 'ionic-photo-gallery',
     expiration: process.env.TOKEN_EXPIRATION || 60*60*24 //24 hours

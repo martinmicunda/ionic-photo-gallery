@@ -1,11 +1,18 @@
+/**
+ * Redis configuration.
+ *
+ * @author    Martin Micunda {@link http://martinmicunda.com}
+ * @copyright Copyright (c) 2015, Martin Micunda
+ * @license	  The MIT License {@link http://opensource.org/licenses/MIT}
+ */
 'use strict';
 
 /**
  * Module dependencies.
  */
 var redis  = require('redis');
-var config = require('./config');
 var logger = require('mm-node-logger')(module);
+var config = require('./config');
 
 var redisClient = redis.createClient(config.redis.port, config.redis.host);
 

@@ -1,0 +1,81 @@
+{
+    "name": "ionic-photo-gallery-server",
+    "version": "0.0.0",
+    "description": "A hybrid app with authentication that allows registered users view a gallery of photos they have uploaded via the app.",
+    "author": {
+        "name": "Martin Micunda",
+        "url": "http://martinmicunda.com"
+    },
+    "private": true,
+    "main": "index.js",
+    "scripts": {
+        "start": "iojs index.js",
+        "jshint": "gulp jshint",
+        "serve": "gulp serve",
+        "audit": "nsp audit-shrinkwrap && nsp audit-package",
+        "missing": "npm ls --depth 1",
+        "outdated": "npm outdated --depth 0"
+    },
+    "pre-commit": [
+        "jshint",
+        "audit",
+        "missing",
+        "outdated"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/martinmicunda/ionic-photo-gallery"
+    },
+    "bugs": {
+        "url": "https://github.com/martinmicunda/ionic-photo-gallery/issues"
+    },
+    "files": [
+        "lib",
+        "index.js",
+        "LICENSE",
+        "README.md"
+    ],
+    "keywords": [
+        "mm",
+        "ionic",
+        "mobile"
+    ],
+    "dependencies": {
+        "express": "^4.12.3",
+        "mm-node-logger": "^0.0.*",
+        "colors": "^1.0.3",
+        "morgan": "^1.5.2",
+        "helmet": "^0.7.0",
+        "body-parser": "^1.12.2",
+        "method-override": "^2.3.2",
+        "passport": "^0.2.1",
+        "passport-local": "^1.0.0",
+        "mongoose": "3.8.25",
+        "redis": "^0.12.1",
+        "jsonwebtoken": "^4.2.1",
+        "path": "^0.11.14",
+        "glob": "^5.0.3",
+        "lodash": "^3.5.0",
+        "bcryptjs": "^2.1.0",
+        "cors": "^2.5.3",
+        "multer": "^0.1.8"
+    },
+    "devDependencies": {
+        "nsp": "^1.0.0",
+        "gulp": "^3.8.11",
+        "gulp-jshint": "^1.9.2",
+        "gulp-util": "^3.0.3",
+        "gulp-help": "^1.3.3",
+        "gulp-nodemon": "^1.0.5",
+        "gulp-load-plugins": "0.8.0",
+        "jshint-stylish": "^1.0.0"
+    },
+    "license": {
+        "type": "MIT",
+        "url": "https://github.com/martinmicunda/ionic-photo-gallery/master/LICENSE"
+    },
+    "engines": {
+        "node": ">=0.10",
+        "npm": ">=2.x"
+    }
+}

@@ -1,3 +1,10 @@
+/**
+ * Express configuration.
+ *
+ * @author    Martin Micunda {@link http://martinmicunda.com}
+ * @copyright Copyright (c) 2015, Martin Micunda
+ * @license	  The MIT License {@link http://opensource.org/licenses/MIT}
+ */
 'use strict';
 
 /**
@@ -7,6 +14,7 @@ var cors           = require('cors');
 var path           = require('path');
 var morgan         = require('morgan');
 var helmet         = require('helmet');
+var multer         = require('multer');
 var logger         = require('mm-node-logger')(module);
 var express        = require('express');
 var bodyParser     = require('body-parser');
@@ -45,6 +53,15 @@ function initMiddleware(app) {
     }));
     app.use(bodyParser.json());
     app.use(methodOverride());
+
+    // Add multipart handling middleware
+    app.use(multer({
+        dest: './uploads/',
+        inMemory: config.uploadFilesInMemory
+    }));
+
+    // Setting router and the static folder for uploaded files
+    app.use('/uploads', express.static(path.resolve('./uploads')));
 }
 
 /**

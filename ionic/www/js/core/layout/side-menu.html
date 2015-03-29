@@ -1,0 +1,87 @@
+<!--<ion-side-menus enable-menu-with-back-views="false">-->
+    <!--<ion-side-menu-content class="post-size-14px">-->
+        <!--<ion-nav-bar class="bar-assertive">-->
+            <!--&lt;!&ndash;<ion-nav-back-button>&ndash;&gt;-->
+            <!--&lt;!&ndash;</ion-nav-back-button>&ndash;&gt;-->
+            <!--&lt;!&ndash;<ion-nav-buttons side="left">&ndash;&gt;-->
+                <!--&lt;!&ndash;<button class="button button-icon button-clear ion-navicon" menu-toggle="left">&ndash;&gt;-->
+                <!--&lt;!&ndash;</button>&ndash;&gt;-->
+            <!--&lt;!&ndash;</ion-nav-buttons>&ndash;&gt;-->
+        <!--</ion-nav-bar>-->
+        <!--<ion-nav-view name="menuContent" animation="slide-left-right"></ion-nav-view>-->
+    <!--</ion-side-menu-content>-->
+    <!--&lt;!&ndash;expose-aside-when="large"&ndash;&gt;-->
+    <!--<ion-side-menu side="left">-->
+        <!--<ion-content>-->
+            <!--<ion-list>-->
+                <!--&lt;!&ndash; TODO: ver si ponemos o no 'nav-clear' &ndash;&gt;-->
+                <!--<ion-item class="heading-item item item-avatar">-->
+                    <!--<img ng-src="https://s3.amazonaws.com/uifaces/faces/twitter/brynn/128.jpg">-->
+                    <!--<h2 class="greeting">Hi Brynn</h2>-->
+                    <!--<p class="message">Welcome back</p>-->
+                <!--</ion-item>-->
+                <!--<ion-item class="item-icon-left" nav-clear menu-close>-->
+                    <!--<i class="icon ion-home"></i>-->
+                    <!--<h2 class="menu-text">My Gallery</h2>-->
+                <!--</ion-item>-->
+                <!--<ion-item class="item-icon-left" nav-clear menu-close ui-sref="app.gallery-list">-->
+                    <!--<i class="icon ion-asterisk"></i>-->
+                    <!--<h2 class="menu-text">Galleries</h2>-->
+                <!--</ion-item>-->
+                <!--<ion-item class="item-icon-left" nav-clear menu-close>-->
+                    <!--<i class="icon ion-radio-waves"></i>-->
+                    <!--<h2 class="menu-text">My Profile</h2>-->
+                <!--</ion-item>-->
+                <!--<ion-item class="item-icon-left" nav-clear menu-close ui-sref="app.user-list">-->
+                    <!--<i class="icon ion-social-wordpress"></i>-->
+                    <!--<h2 class="menu-text">Users</h2>-->
+                <!--</ion-item>-->
+                <!--<ion-item class="item-icon-left" nav-clear menu-close ng-click="vm.signOut()">-->
+                    <!--<i class="icon ion-social-wordpress"></i>-->
+                    <!--<h2 class="menu-text">Sign Out</h2>-->
+                <!--</ion-item>-->
+            <!--</ion-list>-->
+        <!--</ion-content>-->
+    <!--</ion-side-menu>-->
+<!--</ion-side-menus>-->
+
+<ion-side-menus enable-menu-with-back-views="false">
+    <ion-side-menu-content>
+        <ion-nav-bar class="bar-stable">
+            <ion-nav-back-button>
+            </ion-nav-back-button>
+
+            <ion-nav-buttons side="left">
+                <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+                </button>
+            </ion-nav-buttons>
+        </ion-nav-bar>
+        <ion-nav-view name="menuContent"></ion-nav-view>
+    </ion-side-menu-content>
+
+    <ion-side-menu side="left">
+        <ion-header-bar class="bar-stable">
+            <h1 class="title">Left</h1>
+        </ion-header-bar>
+        <ion-content>
+            <ion-list>
+                <ion-item nav-clear menu-close ui-sref="app.gallery({ userId: $root.me.id })">
+                    My Gallery {{$root.me.id}}
+                </ion-item>
+                <ion-item nav-clear menu-close href="#/galleries">
+                    Galleries
+                </ion-item>
+                <ion-item nav-clear menu-close ui-sref="app.user({ userId: $root.me.id })">
+                    My Profile
+                </ion-item>
+                <ion-item nav-clear menu-close href="#/users">
+                    Users
+                </ion-item>
+                <ion-item class="item-icon-left" nav-clear menu-close ng-click="vm.signOut()">
+                    <i class="icon ion-social-wordpress"></i>
+                    <h2 class="menu-text">Sign Out</h2>
+                </ion-item>
+            </ion-list>
+        </ion-content>
+    </ion-side-menu>
+</ion-side-menus>

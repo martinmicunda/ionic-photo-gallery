@@ -1,5 +1,9 @@
 /**
- * @author Martin Micunda
+ * Token controller.
+ *
+ * @author    Martin Micunda {@link http://martinmicunda.com}
+ * @copyright Copyright (c) 2015, Martin Micunda
+ * @license	  The MIT License {@link http://opensource.org/licenses/MIT}
  */
 'use strict';
 
@@ -45,7 +49,7 @@ function extractTokenFromHeader(headers) {
  * @method createToken
  * @param {Object}   payload An additional information that we can pass with token e.g. {user: 2, admin: true}
  * @param {Function} cb      Callback function
- * @returns {Function} cb Callback function `callback(null, token)` if successfully created
+ * @returns {Function} callback function `callback(null, token)` if successfully created
  */
 function createToken(payload, cb) {
     var ttl = config.token.expiration;
@@ -82,7 +86,7 @@ function createToken(payload, cb) {
  * @method expireToken
  * @param {Object}   headers The request headers
  * @param {Function} cb      Callback function
- * @returns {Function} cb Callback function `callback(null, true)` if successfully deleted
+ * @returns {Function} callback function `callback(null, true)` if successfully deleted
  */
 function expireToken(headers, cb) {
     try {
@@ -109,7 +113,7 @@ function expireToken(headers, cb) {
  * @method verifyToken
  * @param {Object}   headers The request headers
  * @param {Function} cb      Callback function
- * @returns {Function} cb Callback function `callback(null, JSON.parse(userData))` if token exist
+ * @returns {Function} callback function `callback(null, JSON.parse(userData))` if token exist
  */
 function verifyToken(headers, cb) {
     try {
