@@ -15,7 +15,7 @@
     -->
 
   </head>
-  <body ng-app="app" ng-controller="CoreCtrl as vm">
+  <body ng-app="app">
     <!--
       The nav bar that will be updated as we navigate between views.
     -->
@@ -41,7 +41,7 @@
                     </p>
 
                     <p>
-                        By <a class="pseudo-link" ng-click="vm.launchMartinMicundaPage()">@martinmicunda</a>
+                        By <a class="pseudo-link" href="http://martinmicunda.com" target="_blank">@martinmicunda</a>
                     </p>
                 </div>
 
@@ -78,15 +78,17 @@
     <!-- your app's js -->
     <script src="js/app.js"></script>
     <script src="js/core/core.js"></script>
-    <script src="js/core/core.controller.js"></script>
     <script src="js/core/config/config.js"></script>
-    <script src="js/core/services/image/image.service.js"></script>
     <script src="js/core/services/user/user.service.js"></script>
+    <script src="js/core/services/image/image.service.js"></script>
+    <script src="js/core/services/camera/camera.service.js"></script>
     <script src="js/core/services/authentication/authentication.service.js"></script>
     <script src="js/core/services/authentication/base64.service.js"></script>
     <script src="js/core/services/authentication/interceptor.service.js"></script>
     <script src="js/core/services/authentication/token.service.js"></script>
-    <script src="js/core/layout/layout.route.js"></script>
+    <script src="js/routes/layout/layout.js"></script>
+    <script src="js/routes/layout/layout.route.js"></script>
+    <script src="js/routes/layout/layout.controller.js"></script>
     <script src="js/routes/gallery/gallery.js"></script>
     <script src="js/routes/gallery/gallery.route.js"></script>
     <script src="js/routes/gallery/gallery.controller.js"></script>

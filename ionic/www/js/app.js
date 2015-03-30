@@ -16,6 +16,7 @@
 
         // app modules
         'app.core',
+        'app.layout',
         'app.signup',
         'app.signin',
         'app.user',

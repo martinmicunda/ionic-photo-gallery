@@ -3,6 +3,34 @@ Ionic Photo Gallery
 
 A hybrid app with authentication that allows registered users view a gallery of photos they have uploaded via the camera phone.
 
+1. Start Genymotion
+2. Open Genymotion Shell
+3. Run follow command to get IP address
+
+```bash
+$ devices list
+```
+you should see something like this:
+
+```bash
+Genymotion virtual device 0 is off. Please select a new virtual device with command : devices select
+Available devices:
+
+ Id | Select |    Status     |   Type   |   IP Address    |      Name
+----+--------+---------------+----------+-----------------+---------------
+  0 |        |            On |  virtual |  192.168.58.101 | Samsung Galaxy S4 - 4.4.4 - API 19 - 1080x1920
+```
+5. Go to vagrant box using 'vagrant up' and 'vagrant ssh'.
+6. Type: `adb connect 192.168.56.101` and `adb devices`. You should see something like this:
+```
+vagrant@vagrant-ubuntu-trusty-64:~$ adb connect 192.168.58.101
+connected to 192.168.58.101:5555
+vagrant@vagrant-ubuntu-trusty-64:~$ adb devices
+List of devices attached
+192.168.58.101:5555     device
+```
+7. Run `ionic run android`
+
 ## License
 
     The MIT License

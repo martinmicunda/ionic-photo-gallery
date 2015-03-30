@@ -3,33 +3,41 @@
   hosts: all
   sudo: yes
   roles:
-#    - martinmicunda.common
-#    - martinmicunda.iojs
+    - martinmicunda.common
+    - martinmicunda.nodejs
 #    - laggyluke.direnv
-#    - Stouts.mongodb
-#    - DavidWittman.redis
-#    - williamyeh.oracle-java
-#    - { role: nickp666.android-sdk }
+    - Stouts.mongodb
+    - DavidWittman.redis
+    - williamyeh.oracle-java
+    - nickp666.android-sdk
     - ionic
   tasks:
     - name: Install server npm packages
       command: "npm install"
       args:
         chdir: /home/vagrant/ionic-photo-gallery/server
-    - name: Install client npm packages
+    - name: Install ionic npm packages
       command: "npm install"
       args:
         chdir: /home/vagrant/ionic-photo-gallery/ionic
-    - name: Start app server
-      command: "npm start"
-      args:
-        chdir: /home/vagrant/ionic-photo-gallery/server
-    - name: Start ionic app
-      command: "npm start"
-      args:
-        chdir: /home/vagrant/ionic-photo-gallery/ionic
   vars:
-    iojs_version: 1.6.1
     java_version: 7
     android_sdk_download_location: http://dl.google.com/android/android-sdk_r24.1.2-linux.tgz
+    android_sdk_install_location: /home/vagrant/android-sdk-linux
+    android_sdk_dependency_packages:
+      - "libncurses5:i386"
+      - "libstdc++6:i386"
+      - "libgcc1:i386"
+      - "zlib1g:i386"
+      - "imagemagick"
+      - "expect"
+      - "ant"
+      - "gradle"
+      - "ccache"
+      - "autoconf"
+      - "automake"
+      - "python-dev"
+      - "zlibc"
+      - "android-tools-adb"
+    android_sdks_to_install: "platform-tool,build-tools-20.0.0,build-tools-19.1.0,android-21,android-20,android-19"
 

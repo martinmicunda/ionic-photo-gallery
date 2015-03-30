@@ -28,7 +28,10 @@
     <ion-content class="signup-page content-bg has-header" scroll="false" >
         <div class="list">
             <label class="item item-input username">
-                <input type="text" placeholder="Username" ng-model="user.username">
+                <input type="text" placeholder="First Name" ng-model="user.firstName">
+            </label>
+            <label class="item item-input username">
+                <input type="text" placeholder="Last Name" ng-model="user.lastName">
             </label>
 
             <label class="item item-input email">
@@ -40,7 +43,7 @@
             </label>
         </div>
 
-        <button class="button button-blue" ng-click="vm.createUser()">
+        <button class="button button-blue" ng-click="vm.signUp(user)">
             SIGN UP
         </button>
         <!--<button class="button button-twitter hide-on-keyboard-open" ng-click="authenticate('twitter')">-->

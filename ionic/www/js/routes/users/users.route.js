@@ -1,7 +1,21 @@
+/**
+ * Users route.
+ *
+ * @author    Martin Micunda {@link http://martinmicunda.com}
+ * @copyright Copyright (c) 2015, Martin Micunda
+ * @license   The MIT License {@link http://opensource.org/licenses/MIT}
+ */
 (function () {
     'use strict';
 
     /**
+     * @ngdoc object
+     * @name usersRoute
+     * @module app.users
+     * @requires $stateProvider
+     * @description
+     * Router for the users page.
+     *
      * @ngInject
      */
     function usersRoute($stateProvider) {

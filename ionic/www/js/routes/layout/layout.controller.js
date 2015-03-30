@@ -1,23 +1,34 @@
+/**
+ * Layout controller.
+ *
+ * @author    Martin Micunda {@link http://martinmicunda.com}
+ * @copyright Copyright (c) 2015, Martin Micunda
+ * @license   The MIT License {@link http://opensource.org/licenses/MIT}
+ */
 (function () {
     'use strict';
 
     /**
+     * @ngdoc controller
+     * @name LayoutCtrl
+     * @module app.gallery
+     * @requires $state
+     * @requires Authentication
+     * @description
+     * Controller for the layout page.
+     *
      * @ngInject
      */
-    function CoreCtrl($state, Authentication) {
+    function LayoutCtrl($state, Authentication) {
         var vm = this;
 
         vm.signOut = function() {
             Authentication.signout().then(function () {
-                console.log('Succesful');
                 $state.go('signin');
             }, function (err) {
                 console.log('error ' + err);
                 $state.go('signin');
             });
-        };
-        vm.isAuthenticated = function() {
-            return Authentication.isAuthenticated();
         };
 
         vm.launchMartinMicundaPage = function(){
@@ -26,6 +37,6 @@
     }
 
     angular
-        .module('app.core')
-        .controller('CoreCtrl', CoreCtrl);
+        .module('app.layout')
+        .controller('LayoutCtrl', LayoutCtrl);
 })();

@@ -1,7 +1,21 @@
+/**
+ * Base64 service.
+ *
+ * @author    Martin Micunda {@link http://martinmicunda.com}
+ * @copyright Copyright (c) 2015, Martin Micunda
+ * @license   The MIT License {@link http://opensource.org/licenses/MIT}
+ */
 (function () {
     'use strict';
 
     /**
+     * @ngdoc service
+     * @name Base64
+     * @module app.core
+     *
+     * @description
+     * The `Base64` service decode binary data.
+     *
      * @ngInject
      */
     function Base64() {

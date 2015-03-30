@@ -9,7 +9,7 @@
     "private": true,
     "main": "index.js",
     "scripts": {
-        "start": "iojs index.js",
+        "start": "node index.js",
         "jshint": "gulp jshint",
         "serve": "gulp serve",
         "audit": "nsp audit-shrinkwrap && nsp audit-package",

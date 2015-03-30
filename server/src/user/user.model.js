@@ -37,13 +37,11 @@ var UserSchema = new mongoose.Schema({
     firstName: {
         type: String,
         trim: true,
-        required: true,
         validate: [validateLocalStrategyProperty, 'Please fill in your first name']
     },
     lastName: {
         type: String,
         trim: true,
-        required: true,
         validate: [validateLocalStrategyProperty, 'Please fill in your last name']
     },
     email: {

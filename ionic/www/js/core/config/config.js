@@ -1,21 +1,15 @@
+/**
+ * Core configuration.
+ *
+ * @author    Martin Micunda {@link http://martinmicunda.com}
+ * @copyright Copyright (c) 2015, Martin Micunda
+ * @license   The MIT License {@link http://opensource.org/licenses/MIT}
+ */
 (function () {
     'use strict';
-    /**
-     * @ngdoc object
-     * @name MainApp
-     * @requires $routeProvider
-     * @description
-     *
-     * This is the main script, which does the following:
-     *
-     *   - loads all the submodules
-     *   - defines routes via `$routeProvider`
-     *   - sets html5Mode to true (removes the # from the route in the URI)
-     *
-     */
 
     /* @ngInject */
-    function onConfig($locationProvider, $provide, $urlRouterProvider, $stateProvider, RestangularProvider, localStorageServiceProvider) {
+    function onConfig($urlRouterProvider, RestangularProvider, localStorageServiceProvider) {
         // use "ionic-photo-gallery" as a localStorage name prefix so app doesn’t accidently read data from another app using the same variable names
         localStorageServiceProvider.setPrefix('ionic-photo-gallery');
 
@@ -24,14 +18,12 @@
          *********************************************************************/
             // set restful base API Route
             //RestangularProvider.setBaseUrl('/api/' + env.apiVersion);
-        RestangularProvider.setBaseUrl('http://192.168.0.100:3000');
-
+        RestangularProvider.setBaseUrl('http://127.0.0.1:3000');
+        //192.168.0.100
         // set the `id` field to `_id`
         RestangularProvider.setRestangularFields({
             id: '_id'
         });
-        // use the HTML5 History API
-        //$locationProvider.html5Mode(true);
 
         // for any unmatched url, send to 404 page (Not page found)
         //$urlRouterProvider.otherwise('/404');
@@ -42,8 +34,7 @@
     }
 
     /* @ngInject */
-    function onRun($ionicPlatform, $rootScope, $location, Authentication, Restangular, $state, $stateParams) {
-
+    function onRun($ionicPlatform, $rootScope, $location, Authentication) {
         $ionicPlatform.ready(function() {
             // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
             // for form inputs)

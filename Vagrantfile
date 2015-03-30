@@ -1,5 +1,5 @@
 #####################################################################################
-# Vagrant Development Environment for Employee Scheduling application.              #
+# Vagrant Development Environment for Ionic applications.                           #
 #                                                                                   #
 # Author: Martin Micunda                                                            #
 #-----------------------------------------------------------------------------------#
@@ -13,10 +13,6 @@ VAGRANTFILE_API_VERSION = "2"
 # This Vagrant environment requires Vagrant 1.6.0 or higher.
 Vagrant.require_version ">= 1.6.0"
 
-unless Vagrant.has_plugin?("vagrant-hostmanager")
-    raise 'Vagrant-hostmanager is not installed! Please run `vagrant plugin install vagrant-hostmanager` before continuing`.'
-end
-
 #####################################################################################
 #                             VAGRANT MAGIC BEGINS HERE                             #
 #-----------------------------------------------------------------------------------#
@@ -29,7 +25,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
     # ionic
     config.vm.network "forwarded_port", guest: 8100, host: 8100
-    # liverload
+    # livereload
     config.vm.network "forwarded_port", guest: 35729, host: 35729
     # server app
     config.vm.network "forwarded_port", guest: 3000, host: 3000
@@ -40,11 +36,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     # Provision the VirtualBoxes with Ansible
     config.vm.provision "ansible" do |ansible|
         ansible.playbook = "ansible/playbook.yml"
-        #ansible.extra_vars = { ansible_ssh_user: 'vagrant' }
         ansible.raw_arguments = ['-v']
     end
 
-    # Configure VM settings for servers running in VirtualBox
+    # Configure VM settings for server running in VirtualBox
     config.vm.provider "virtualbox" do |vb|
         # set the Video Ram to 128 megs
         vb.customize ["modifyvm", :id, "--vram", "128"]
