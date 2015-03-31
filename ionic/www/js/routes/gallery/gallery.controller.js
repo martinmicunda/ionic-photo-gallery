@@ -22,7 +22,12 @@
     function GalleryCtrl(images, CameraService) {
         var vm = this;
         vm.images = images;
-        vm.takePicture = CameraService.takePicture;
+        vm.takePhoto = function() {
+            CameraService.takePicture(function(imageURI) {
+                console.log('controller ' + takePicture);
+                vm.images.push(imageURI);
+            });
+        }
     }
 
     angular

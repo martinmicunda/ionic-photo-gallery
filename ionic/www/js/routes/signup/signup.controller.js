@@ -20,21 +20,23 @@
      *
      * @ngInject
      */
-    function SignupCtrl($rootScope, $state, Authentication) {
+    function SignupCtrl($location, $rootScope, $state, Authentication) {
         var vm = this;
 
         vm.signUp = function(user) {
             Authentication.signup(user).then(function () {
                 // save user profile details to $rootScope
                 $rootScope.me = Authentication.currentUser;
-                $rootScope.me.id = $rootScope.me._id;
-                delete $rootScope.me._id;
 
-                $state.go('app.gallery', { userId: $rootScope.me.id});
+                $state.go('app.gallery', { userId: $rootScope.me._id});
             }, function(err) {
                 console.error('error' + err);
             });
         };
+
+        vm.goHome = function() {
+            $location.path('/');
+        }
     }
 
     angular

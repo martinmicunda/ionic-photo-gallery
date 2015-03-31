@@ -42,4 +42,5 @@ node_modules
 .node-gyp
 .npm
 
+# uploaded files
 uploads/

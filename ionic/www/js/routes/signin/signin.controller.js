@@ -25,13 +25,11 @@
         var vm = this;
 
         vm.signIn = function(credentials) {
-            // save user profile details to $rootScope
-            $rootScope.me = Authentication.currentUser;
-            $rootScope.me.id = $rootScope.me._id;
-            delete $rootScope.me._id;
-
             Authentication.signin(credentials).then(function () {
-                $state.go('app.gallery', { userId: $rootScope.me.id});
+                // save user profile details to $rootScope
+                $rootScope.me = Authentication.currentUser;
+
+                $state.go('app.gallery', { userId: $rootScope.me._id});
             }, function(error) {
                 // Vibrate 100ms
                 $cordovaVibration.vibrate(100);

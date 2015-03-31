@@ -31,7 +31,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     config.vm.network "forwarded_port", guest: 3000, host: 3000
 
     config.vm.synced_folder ".", "/home/vagrant/ionic-photo-gallery"
-    #config.vm.network "private_network", ip: "192.168.33.20"
 
     # Provision the VirtualBoxes with Ansible
     config.vm.provision "ansible" do |ansible|
@@ -50,7 +49,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         # this is the name in the VirtualBox Manager UI
         vb.name = "IonicBox"
         # set the system memory for the virtual machine
-        vb.memory = 1024
+        vb.memory = 2048
         # number of Physical CPUs to allocate
         vb.cpus = 2
     end

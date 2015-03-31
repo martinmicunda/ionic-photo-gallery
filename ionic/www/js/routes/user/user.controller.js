@@ -13,14 +13,16 @@
      * @name UserCtrl
      * @module app.users
      * @requires user
+     * @requires $rootScope
      * @description
      * Controller for the user page.
      *
      * @ngInject
      */
-    function UserCtrl(user) {
+    function UserCtrl($rootScope, user) {
         var vm = this;
         vm.user = user;
+        vm.title = $rootScope.me._id === user._id ? 'My Profile' : 'User';
     }
 
     angular

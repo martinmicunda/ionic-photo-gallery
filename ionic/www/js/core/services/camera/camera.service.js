@@ -13,15 +13,15 @@
      * @name CameraService
      * @module app.core
      * @requires $rootScope
-     * @requires $timeout
      * @requires $cordovaFileTransfer
      * @requires $cordovaCamera
+     * @requires SERVER_API_URL
      * @description
      * Service to take picture via camera phone and upload photo to server.
      *
      * @ngInject
      */
-    function CameraService($rootScope, $timeout, $cordovaFileTransfer, $cordovaCamera) {
+    function CameraService($rootScope, $cordovaFileTransfer, $cordovaCamera, SERVER_API_URL) {
         /**
          * @type {object}
          * @private
@@ -37,10 +37,12 @@
             targetHeight: 100,
             saveToPhotoAlbum: false
         };
+
+        //var _cameraOptions = null;
         /**
          * @ngdoc method
          * @name CameraService#clearCache
-         * @description Clear camera cache.
+         * @description Clear camera cache (only required for FILE_URI).
          * @private
          */
         var clearCache = function() {
@@ -52,50 +54,32 @@
         };
 
         var takePicture = function() {
-
-            //var onFail = function (message) {
-            //    alert('Failed because: ' + message);
-            //};
-            var onSuccess = function() {
-
-            };
-
-            var serverURL = 'http://192.168.0.100:3000';
             var imageURI = 'img/ionic.png';
-
             var fileTransferOptions = {
                 fileKey: 'image',
                 fileName: imageURI.substr(imageURI.lastIndexOf('/') + 1),
                 mimeType: 'image/jpeg',
                 chunkedMode: false,
                 params: { // Whatever you populate options.params with, will be available in req.body at the server-side.
-                    userId: $rootScope.me.id
+                    userId: $rootScope.me._id
                 }
             };
 
-            function upload(imageURI) {
-                $cordovaFileTransfer.upload(serverURL + '/images', imageURI, fileTransferOptions)
+            function uploadImage(imageURI) {
+                console.log('Image has been taken ' + imageURI);
+                $cordovaFileTransfer.upload(SERVER_API_URL + '/images', imageURI, fileTransferOptions)
                     .then(function(result) {
-                        console.log("SUCCESS: " + JSON.stringify(result.response));
+                        console.log('Image has been uploaded successfully: ' + JSON.stringify(result.response));
                         clearCache();
                     }, function(err) {
-                        console.log("ERROR: " + JSON.stringify(err));
+                        console.error('Image has not been uploaded successfully: ' + JSON.stringify(err));
                         clearCache();
-                    }, function (progress) {
-                        $timeout(function () {
-                            //vm.downloadProgress = (progress.loaded / progress.total) * 100;
-                        })
                     });
             }
 
-            $cordovaCamera.getPicture(_cameraOptions).then(function(imageURI) {
-                console.log("Image has been uploaded " + imageURI);
-                upload(imageURI);
-            }, function(error) {
+            return $cordovaCamera.getPicture(_cameraOptions).then(uploadImage(imageURI), function(error) {
                 console.error(error);
             });
-
-
         };
 
         return {

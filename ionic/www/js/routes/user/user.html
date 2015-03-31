@@ -1,5 +1,6 @@
-<ion-view view-title="User">
-    <ion-content>
-        <h1>user {{ vm.user.firstName}}</h1>
+<ion-view view-title="{{vm.title}}">
+    <ion-content class="padding">
+        <p> Name: {{ ::vm.user.firstName }} {{ ::vm.user.lastName }}</p>
+        <p> Email: {{ ::vm.user.email }}</p>
     </ion-content>
 </ion-view>

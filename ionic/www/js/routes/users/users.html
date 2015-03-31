@@ -1,41 +1,10 @@
-<ion-view cache-view="false">
-    <ion-nav-buttons side="left">
-        <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
-    </ion-nav-buttons>
-    <ion-nav-title>
-        <span>Employees</span>
-    </ion-nav-title>
-    <ion-content class="has-header padding">
-        <!--<div class="bar bar-subheader item-input-inset">-->
-            <!--<label class="item-input-wrapper">-->
-                <!--<i class="icon ion-ios7-search placeholder-icon"></i>-->
-                <!--<input id="searchKey" type="search" placeholder="Search" ng-model="searchKey" autocorrect="off">-->
-                <!--<button class="button button-clear" ng-click="clearSearch()">X</button>-->
-            <!--</label>-->
-            <!--<button class="button button-clear" ng-click="search()">Search</button>-->
-        <!--</div>-->
+<ion-view view-title="Users">
+    <ion-content class="has-header">
         <ion-list>
-            <ion-item ng-repeat="user in vm.users track by $index">
-                <p> {{user.firstName}} {{user.lastName}} </p>
+            <ion-item ng-repeat="user in vm.users track by $index" type="item-text-wrap" ui-sref="app.user({ userId: user._id })">
+                <p> {{user.firstName}} {{user.lastName}}</p>
             </ion-item>
         </ion-list>
     </ion-content>
 </ion-view>
 
-<!--<ion-view view-title="Playlist">-->
-<!--<ion-content>-->
-<!--<h1>Playlist</h1>-->
-<!--<p>test {{vm.users.length}}</p>-->
-
-<!--</ion-content>-->
-<!--</ion-view>-->
-
-<!--<ion-view view-title="Users">-->
-    <!--<ion-content>-->
-        <!--<ion-list>Users-->
-            <!--&lt;!&ndash;<ion-item ng-repeat="user in users">&ndash;&gt;-->
-            <!--&lt;!&ndash;{{user.firstName}}&ndash;&gt;-->
-            <!--&lt;!&ndash;</ion-item>&ndash;&gt;-->
-        <!--</ion-list>-->
-    <!--</ion-content>-->
-<!--</ion-view>-->

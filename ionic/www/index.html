@@ -16,28 +16,15 @@
 
   </head>
   <body ng-app="app">
-    <!--
-      The nav bar that will be updated as we navigate between views.
-    -->
-    <!--<ion-nav-bar class="bar-positive">-->
-      <!--<ion-nav-back-button>-->
-      <!--</ion-nav-back-button>-->
-    <!--</ion-nav-bar>-->
-    <!--
-      The views will be rendered in the <ion-nav-view> directive below
-      Templates are in the /templates folder (but you could also
-      have templates inline in this html file if you'd like).
-    -->
     <ion-nav-view>
         <ion-view hide-nav-bar="true" hide-back-button="true">
 
-            <ion-content class="main-page home-bg content-bg overlay-content" scroll="false">
-                <div class="logo">
-                </div>
+            <ion-content class="padding" scroll="false" style="padding-top: 100px;">
 
                 <div class="slogan">
                     <p>
-                        A hybrid (ionic, cordova) photo gallery app powered by a Node.js server!
+                        A hybrid (ionic, cordova) app with authentication that allows registered users view a gallery of photos they
+                        have uploaded via the camera phone powered by a Node.js server!
                     </p>
 
                     <p>
@@ -45,11 +32,11 @@
                     </p>
                 </div>
 
-                <button class="button button-blue" ui-sref="signin">
+                <button class="button button-block button-positive" ui-sref="signin">
                     Sign In
                 </button>
 
-                <button class="button button-transparent" ui-sref="signup">
+                <button class="button button-block button-positive" ui-sref="signup">
                     Sign up
                 </button>
 
