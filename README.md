@@ -19,7 +19,7 @@ A hybrid app with authentication that allows registered users view a gallery of 
 - [License](#license)
 
 ## Technologies Used
-| Client Side | Server Side | DevOps | Test | 
+| Mobile Side | Server Side | DevOps | Test | 
 |:-------------------:|:-------------------:|:-------------------:|:-------------------:| 
 | [Angular.js](http://angularjs.org/) ![Angularjs](https://avatars1.githubusercontent.com/u/139426?s=30) | [Node.js](http://nodejs.org/) <img src="http://nodejs.org/images/logo-light.svg" height="30" width="80" /> | [Gulp](http://gulpjs.com/) ![Gulp](https://avatars0.githubusercontent.com/u/6200624?s=30) &nbsp; [Bower](http://bower.io/) ![Bower] (https://avatars3.githubusercontent.com/u/3709251?s=30) | [Jasmine](http://pivotal.github.io/jasmine/) <img src="https://rawgithub.com/pivotal/jasmine/master/images/jasmine-horizontal.svg" height="40" width="50" /> |
 [Ionic](http://ionicframework.com/) <img src="http://upload.wikimedia.org/wikipedia/commons/d/d1/Ionic_Logo.svg" height="45" width="80" /> | [MongoDB](http://www.mongodb.org/) ![MongoDB] (https://avatars3.githubusercontent.com/u/45120?v=2&s=30) | [NPM](https://www.npmjs.org/) ![NPM] (https://avatars0.githubusercontent.com/u/6078720?s=30) &nbsp;                 [Ansible](https://www.ansible.com/) ![Ansible] (https://avatars3.githubusercontent.com/u/1507452?v=2&s=30) | [Karma](http://karma-runner.github.io/) ![Karma] (https://avatars3.githubusercontent.com/u/3284117?s=30) | 
