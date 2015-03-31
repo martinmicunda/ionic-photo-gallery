@@ -3,6 +3,80 @@ Ionic Photo Gallery
 
 A hybrid app with authentication that allows registered users view a gallery of photos they have uploaded via the camera phone.
 
+## Technologies Used
+| Client Side | Server Side | DevOps | Test | 
+|:-------------------:|:-------------------:|:-------------------:|:-------------------:| 
+| [Angular.js](http://angularjs.org/) ![Angularjs](https://avatars1.githubusercontent.com/u/139426?s=30) | [Node.js](http://nodejs.org/) <img src="http://nodejs.org/images/logo-light.svg" height="30" width="80" /> | [Gulp](http://gulpjs.com/) ![Gulp](https://avatars0.githubusercontent.com/u/6200624?s=30) &nbsp; [Bower](http://bower.io/) ![Bower] (https://avatars3.githubusercontent.com/u/3709251?s=30) | [Jasmine](http://pivotal.github.io/jasmine/) <img src="https://rawgithub.com/pivotal/jasmine/master/images/jasmine-horizontal.svg" height="40" width="50" /> |
+[Ionic](http://ionicframework.com/) <img src="http://upload.wikimedia.org/wikipedia/commons/d/d1/Ionic_Logo.svg" height="45" width="80" /> | [MongoDB](http://www.mongodb.org/) ![MongoDB] (https://avatars3.githubusercontent.com/u/45120?v=2&s=30) | [NPM](https://www.npmjs.org/) ![NPM] (https://avatars0.githubusercontent.com/u/6078720?s=30) &nbsp;                 [Ansible](https://www.ansible.com/) ![Ansible] (https://avatars3.githubusercontent.com/u/1507452?v=2&s=30) | [Karma](http://karma-runner.github.io/) ![Karma] (https://avatars3.githubusercontent.com/u/3284117?s=30) | 
+[Material Design](https://material.angularjs.org/) ![Angularjs](https://avatars1.githubusercontent.com/u/139426?s=30) | [Express.js](http://expressjs.com/)<img src="https://cldup.com/wpGXm1cWwB.png" height="40" width="145"> | [Vagrant](http://www.vagrantup.com/) <img src="https://www.vagrantup.com/images/logo_vagrant-81478652.png" height="40" width="145"> | [Protractor](http://github.com/angular/protractor/) |
+| | [Redis](http://redis.io/) <img src="http://upload.wikimedia.org/wikipedia/en/thumb/6/6b/Redis_Logo.svg/467px-Redis_Logo.svg.png?v=2&s=30" height="35" width="125"> | |
+
+##<a name="installation-and-configuration"></a> Installation & Configuration
+###<a name="platform-and-tools"></a> Platform & Tools
+You need to have installed follow tools on your machine:
+
+- [Virtualbox](https://www.virtualbox.org/wiki/Downloads) 4.3.16+
+- [Vagrant](http://www.vagrantup.com/downloads.html) 1.6.2+
+- [Ansible](http://docs.ansible.com/intro_installation.html) 1.7.0+
+
+###<a name="installation"></a> Installation
+
+**1.** Clone main repository:
+```bash
+$ git clone git@github.com:martinmicunda/ionic-photo-gallery.git 
+$ cd employee-scheduling
+```
+
+**2.** The following command would add a new `ubuntu trusty64 box`, and if an existing one is found, it will override it:
+
+```bash
+$ vagrant box add trusty64 http://files.vagrantup.com/trusty64.box --force
+```
+>**NOTE:** This process may take a while, as most Vagrant boxes will be at least **200 MB** big.
+
+Verify that box was installed by running the `list` subcommand that will list the boxes installed within Vagrant along with the provider that backs the box:
+
+```bash
+$ vagrant box list
+ubuntu/trusty64  (virtualbox, 14.04)
+```
+**3.** The following command would install an `ansible roles` for this project, and if an existing one is found, it will override it:
+
+```bash
+$ bash bin/ansible-install-roles.sh
+```
+Verify that ansible roles were installed by running the `list` subcommand that will list the installed roles:
+
+```bash
+$ ansible-galaxy list
+- DavidWittman.redis, 1.0.3
+- laggyluke.direnv, v2.6.0
+- martinmicunda.common, v1.0.1
+- martinmicunda.nodejs, v1.0.1
+- nickp666.android-sdk, v0.0.1
+- Stouts.mongodb, 2.1.8
+- williamyeh.oracle-java, master
+```
+**4.** Now, run `vagrant up` that will create and provisioning `default` VM box. 
+
+```bash
+$ vagrant up
+```
+>**NOTE:** **Vagrant will provision the virtual machine only once on the first run, any subsequent provisioning must be executed with the** `--provision` **flag either** `vagrant up --provision` **or** `vagrant reload --provision` **or** `vagrant provision` **if vagrant box is already running. The provisioning will re-run also if you destroy the VM and rebuild it with** `vagrant destroy` **and** `vagrant up` **.**
+
+If there have been no errors when executing the above commands, the machines  `default` should be created. The following command would outputs status of the vagrant machine:
+
+```bash
+$ vagrant status
+Current machine states:
+default                   running (virtualbox)
+```
+Now you should be able to ssh into box:
+```bash
+$ vagrant ssh 
+```
+
+##<a name="installation-and-configuration"></a> Android Configuration
 1. Start Genymotion
 2. Open Genymotion Shell
 3. Run follow command to get IP address
