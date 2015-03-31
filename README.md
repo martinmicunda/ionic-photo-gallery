@@ -3,6 +3,21 @@ Ionic Photo Gallery
 
 A hybrid app with authentication that allows registered users view a gallery of photos they have uploaded via the camera phone.
 
+## Table of Contents
+- [Technologies Used](#technologies-used)
+- [Installation & Configuration](#installation-and-configuration)
+    - [Platform & Tools](#platform-and-tools)
+    - [Installation](#installation)
+- [Running App](#running-app)
+    - [Server](#server) 
+    - [Ionic](#ionic) 
+- [Building for iOS](#building-for-ios)
+- [Building for Android](#building-for-android)
+- [Vagrant](#vagrant)
+- [Ansible](#ansible)
+- [FAQ](#faq)
+- [License](#license)
+
 ## Technologies Used
 | Client Side | Server Side | DevOps | Test | 
 |:-------------------:|:-------------------:|:-------------------:|:-------------------:| 
@@ -75,8 +90,74 @@ Now you should be able to ssh into box:
 ```bash
 $ vagrant ssh 
 ```
+## Running App
+### Server
+**1.** To start the server you need to ssh into box:
+```bash
+$ vagrant ssh
+```
+**2.** Install the server dependencies:
+```bash
+$ cd server
+$ npm install
+```
+**3.** Start the server:
+```bash
+$ npm start
+```
+>**NOTE:** **The [direnv](http://direnv.net/) is use as an environment variable manager so when you first time cd into server directory with a `.envrc` file in it, it will refuse to load the file. This is to protect you, since the contents of the .envrc will be executed by your shell, and they might come from untrusted sources. Simply run `direnv allow`, and it will trust that file until the next time it changes.**
 
-##<a name="installation-and-configuration"></a> Android Configuration
+### Ionic
+**1.** To start the server you need to ssh into box:
+```bash
+$ vagrant ssh
+```
+**2.** Install the ionic dependencies:
+```bash
+$ cd ionic
+$ npm install
+```
+**3.** Start the ionic:
+```bash
+$ npm start
+```
+Open up your browser and navigate to [http://127.0.0.1:8100](http://127.0.0.1:8100) and you should see ionic app up and running.
+
+##<a name="building-for-ios"></a> Building for iOS
+**1.** ssh into box:
+```bash
+$ vagrant ssh
+```
+**2.** Add support for the iOS platform:
+```bash
+$ cd ionic
+$ ionic platform add ios
+```
+**3.** Build the project:
+```bash
+$ ionic build ios
+```
+**4.** Open `ionic-photo-gallery.xcodeproj` in the `ionic-photo-gallery/ionic/platforms/ios` folder.
+
+**5.** In [Xcode](https://developer.apple.com/xcode/), run the application on a device connected to your computer or in the iOS emulator.
+
+##<a name="building-for-android"></a> Building for Android
+**1.** ssh into box:
+```bash
+$ vagrant ssh
+```
+**2.** Add support for the Android platform:
+```bash
+$ cd ionic
+$ ionic platform add android
+```
+**3.** Build the project:
+```bash
+$ ionic build android
+```
+
+**NOTE:** (martin) work in progress!!
+
 1. Start Genymotion
 2. Open Genymotion Shell
 3. Run follow command to get IP address
@@ -104,6 +185,56 @@ List of devices attached
 192.168.58.101:5555     device
 ```
 7. Run `ionic run android`
+
+## Vagrant 
+There’s a ton of commands you can use to talk to Vagrant. For a full list see the [official docs](http://docs.vagrantup.com/v2/cli/), but here are the more common ones.
+
+* `vagrant up` - use this command to `start` your virtual environment
+* `vagrant halt` - use this command to `stop` your virtual environment
+* `vagrant suspend` - use this command to `pause` your virtual environment, make sure you do this before shutting down your computer to safely be able to restore the environment later.
+* `vagrant destroy` - use this command to `removes` your virtual environment from your machine
+* `vagrant reload` - use this command to your virtual environment, if you add the `--provision` flag, it will reprovision the box as well; this is useful with removing or adding things to the server via Ansible.
+* `vagrant ssh` - use this command to `connect` to the virtual server
+
+## Ansible
+To get better understanding how Ansible works check the [official docs](http://docs.ansible.com/). Ansible installs the following software:
+
+* git
+* node.js
+* npm
+* nginx
+* mongodb
+* redis
+* java 7
+* android SDK
+* apache ant
+* cordova
+* ionic CLI
+* direnv
+
+The `mongodb` and `redis` services are started after provisioning takes place.
+
+## FAQ
+### What if I want to uninstall application?
+**1.** The following command would permanently removes the `default` virtual box from your machine:
+```bash
+$ vagrant destroy
+```
+**2.** The following command would uninstall an `ansible roles` for this project:
+```bash
+$ bash bin/ansible-uninstall-roles.sh
+```
+
+**4.** The following command would remove  `trusty64 box`:
+```bash
+$ vagrant box remove trusty64
+```
+###What if I want a fresh install?
+If you wish to destroy the `default` virtual boxe to make sure you have a fresh start, you can do these steps:
+```bash
+ $ vagrant destroy 
+ $ vagrant up
+```
 
 ## License
 
