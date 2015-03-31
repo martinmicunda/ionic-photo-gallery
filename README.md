@@ -199,18 +199,17 @@ There’s a ton of commands you can use to talk to Vagrant. For a full list see 
 ## Ansible
 To get better understanding how Ansible works check the [official docs](http://docs.ansible.com/). Ansible installs the following software:
 
-* git
-* node.js
-* npm
-* nginx
-* mongodb
-* redis
-* java 7
-* android SDK
-* apache ant
-* cordova
-* ionic CLI
-* direnv
+* [git](http://git-scm.com/)
+* [node.js](https://nodejs.org/)
+* [npm](https://www.npmjs.com/)
+* [mongodb](https://www.mongodb.org/)
+* [redis](http://redis.io/)
+* [java 7](http://www.oracle.com/technetwork/java/javase/downloads/jre7-downloads-1880261.html)
+* [android SDK](https://developer.android.com/sdk/index.html)
+* [apache ant](http://ant.apache.org/)
+* [cordova](https://cordova.apache.org/)
+* [ionic CLI](http://ionicframework.com/docs/cli/)
+* [direnv](http://direnv.net/)
 
 The `mongodb` and `redis` services are started after provisioning takes place.
 

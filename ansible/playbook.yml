@@ -11,15 +11,6 @@
     - williamyeh.oracle-java
     - nickp666.android-sdk
     - ionic
-  tasks:
-    - name: Install server npm packages
-      command: "npm install"
-      args:
-        chdir: /home/vagrant/ionic-photo-gallery/server
-    - name: Install ionic npm packages
-      command: "npm install"
-      args:
-        chdir: /home/vagrant/ionic-photo-gallery/ionic
   vars:
     java_version: 7
     android_sdk_download_location: http://dl.google.com/android/android-sdk_r24.1.2-linux.tgz
