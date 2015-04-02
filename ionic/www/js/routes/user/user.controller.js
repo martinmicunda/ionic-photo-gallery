@@ -12,8 +12,8 @@
      * @ngdoc controller
      * @name UserCtrl
      * @module app.users
-     * @requires user
      * @requires $rootScope
+     * @requires user
      * @description
      * Controller for the user page.
      *

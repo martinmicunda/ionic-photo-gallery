@@ -12,21 +12,55 @@
      * @ngdoc controller
      * @name GalleryCtrl
      * @module app.gallery
+     * @requires $scope
+     * @requires $stateParams
      * @requires images
+     * @requires SERVER_API_URL
      * @requires CameraService
+     * @requires ImageService
+     * @requires $ionicLoading
      * @description
      * Controller for the gallery page.
      *
      * @ngInject
      */
-    function GalleryCtrl(images, CameraService) {
+    function GalleryCtrl($scope, $stateParams, images, SERVER_API_URL, CameraService, ImageService, $ionicLoading) {
         var vm = this;
+        vm.listCanSwipe = true;
         vm.images = images;
+        vm.apiUrl = SERVER_API_URL;
         vm.takePhoto = function() {
-            CameraService.takePicture(function(imageURI) {
-                console.log('controller ' + takePicture);
-                vm.images.push(imageURI);
+            CameraService.takePicture().then(function() {
+                ImageService.getByUser($stateParams.userId).then(function(images) {
+                    vm.images = images;
+                }, function(error) {
+                    console.error('Can not load images '+ error);
+                }).then(function() {
+                    // Stop the ion-refresher from spinning
+                    $scope.$broadcast('scroll.refreshComplete');
+                });
             });
+        };
+        vm.delete = function(image) {
+            $ionicLoading.show({template: 'Deleting...'});
+            ImageService.delete(image._id).then(function(){
+                vm.images.splice(vm.images.indexOf(image), 1);
+            }, function(error) {
+                console.error('Can not delete image '+ error);
+            }).then(function() {
+                $ionicLoading.hide();
+            });
+        };
+        vm.doRefresh = function() {
+            ImageService.getByUser($stateParams.userId).then(function(images) {
+                vm.images = images;
+            }, function(error) {
+                console.error('Can not load images '+ error);
+            }).then(function() {
+                // Stop the ion-refresher from spinning
+                $scope.$broadcast('scroll.refreshComplete');
+            });
+
         }
     }
 

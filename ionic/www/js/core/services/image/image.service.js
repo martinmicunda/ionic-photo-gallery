@@ -35,7 +35,7 @@
             },
             /**
              * @ngdoc method
-             * @name UserService:getByUser
+             * @name ImageService:getByUser
              * @description
              * Retrieve all images that belong to user.
              *
@@ -45,6 +45,19 @@
                 return Restangular
                     .all('images')
                     .getList({userId: userId});
+            },
+            /**
+             * @ngdoc method
+             * @name ImageService:delete
+             * @description
+             * Delete image by id.
+             *
+             * @returns {promise} A promise which is resolved in image list data.
+             */
+            delete: function(id) {
+                return Restangular
+                    .one('images', id)
+                    .remove();
             }
         };
     }

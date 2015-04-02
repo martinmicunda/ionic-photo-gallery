@@ -21,7 +21,7 @@
      *
      * @ngInject
      */
-    function SigninCtrl($rootScope, $state, Authentication, $cordovaVibration) {
+    function SigninCtrl($rootScope, $state, Authentication, $cordovaVibration, $cordovaDialogs) {
         var vm = this;
 
         vm.signIn = function(credentials) {
@@ -31,9 +31,9 @@
 
                 $state.go('app.gallery', { userId: $rootScope.me._id});
             }, function(error) {
-                // Vibrate 100ms
                 $cordovaVibration.vibrate(100);
                 console.log('error ' + error);
+                $cordovaDialogs.alert('Invalid Username or Password', '', 'OK');
             });
         };
     }

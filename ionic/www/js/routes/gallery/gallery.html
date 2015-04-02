@@ -1,11 +1,22 @@
-<ion-content view-title="My Gallery">
-    <ion-list>
-        <ion-item ng-repeat="image in vm.images track by $index">
-            <p> {{image.fileName}} {{image.url}} </p>
-            <img ng-src="http://192.168.0.100:3000/{{image.url}}">
-        </ion-item>
-    </ion-list>
-    <button class="button button-icon icon ion-camera" ng-click="vm.takePhoto()">Take image</button>
+<ion-view view-title="My Gallery">
+    <ion-content>
+        <ion-refresher pulling-text="Pull to refresh..." on-refresh="vm.doRefresh()"></ion-refresher>
+        <div class="row" style="margin-top: 100px; text-align: center" ng-if="vm.images.length === undefined || vm.images.length <= 0">
+            <div class="col">
+                You have no images...
+            </div>
+        </div>
+        <ion-list can-swipe="vm.listCanSwipe" ng-if="vm.images.length > 0">
+            <ion-item ng-repeat="image in vm.images track by $index" class="item-thumbnail-left">
+                <p> {{image.fileName}} {{image.url}} </p>
+                <img ng-src="{{vm.apiUrl}}/{{image.url}}">
+                <ion-option-button class="button-assertive"
+                                   ng-click="vm.delete(image)">
+                    Delete
+                </ion-option-button>
+            </ion-item>
+        </ion-list>
+        <button class="button button-icon icon ion-camera" ng-click="vm.takePhoto()">Take image</button>
 
-</ion-content>
-
+    </ion-content>
+</ion-view>

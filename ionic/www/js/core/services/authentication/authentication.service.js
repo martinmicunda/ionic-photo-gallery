@@ -14,14 +14,14 @@
     function AuthenticationProvider() {
         this.$get = function($http, Restangular, Token, localStorageService) {
             var currentUser = null;
-            var saveUserAndToken = function(token) {
+            function saveUserAndToken(token) {
                 // store token to local storage
                 Token.set(token);
                 // decode user data from payload token
                 currentUser = Token.decodeToken(token);
                 // save user to locale storage
                 localStorageService.set('user', currentUser);
-            };
+            }
 
             return {
                 signup: function(params) {
