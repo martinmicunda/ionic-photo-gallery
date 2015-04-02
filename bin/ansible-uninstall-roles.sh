@@ -3,6 +3,7 @@
 set -e
 ansible-galaxy remove martinmicunda.common \
                       martinmicunda.nodejs \
+                      martinmicunda.ionic \
                       laggyluke.direnv \
                       Stouts.mongodb \
                       DavidWittman.redis \

@@ -56,7 +56,26 @@ function create(req, res) {
     });
 }
 
+/**
+ * Delete image.
+ *
+ * @param {Object} req The request object
+ * @param {Object} res The request object
+ * @api public
+ */
+function deleteImage(req, res) {
+    Image.findByIdAndRemove(req.params.id, function(err) {
+        if (err) {
+            logger.error(err.message);
+            return res.status(500).send(err);
+        } else {
+            res.sendStatus(204);
+        }
+    });
+}
+
 module.exports = {
     findByUser: findByUser,
-    create: create
+    create: create,
+    delete: deleteImage
 };

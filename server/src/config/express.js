@@ -148,13 +148,13 @@ function initErrorRoutes(app) {
         logger.error('Internal error(%d): %s', res.statusCode, err.stack);
 
         // Redirect to error page
-        res.redirect('/server-error');
+        res.sendStatus(500);
     });
 
     // Assume 404 since no middleware responded
     app.use(function (req, res) {
         // Redirect to not found page
-        res.redirect('/not-found');
+        res.sendStatus(404);
     });
 }
 

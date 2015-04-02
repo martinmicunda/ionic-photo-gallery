@@ -39,7 +39,7 @@ You need to have installed follow tools on your machine:
 **1.** Clone main repository:
 ```bash
 $ git clone git@github.com:martinmicunda/ionic-photo-gallery.git 
-$ cd employee-scheduling
+$ cd ionic-photo-gallery
 ```
 
 **2.** The following command would add a new `ubuntu trusty64 box`, and if an existing one is found, it will override it:
@@ -67,6 +67,7 @@ $ ansible-galaxy list
 - DavidWittman.redis, 1.0.3
 - laggyluke.direnv, v2.6.0
 - martinmicunda.common, v1.0.1
+- martinmicunda.ionic, v1.0.0
 - martinmicunda.nodejs, v1.0.1
 - nickp666.android-sdk, v0.0.1
 - Stouts.mongodb, 2.1.8

@@ -19,8 +19,12 @@ var authentication = require('../authentication/authentication.controller.js');
  * @param {Object} app The express application
  */
 function setImageRoutes(app) {
-    app.route('/images').post(authentication.isAuthenticated, image.create);
-    app.route('/images').get(authentication.isAuthenticated, image.findByUser);
+    app.route('/images')
+        .post(authentication.isAuthenticated, image.create)
+        .get(authentication.isAuthenticated, image.findByUser);
+
+    app.route('/images/:id').delete(authentication.isAuthenticated, image.delete);
+
 }
 
 module.exports = setImageRoutes;

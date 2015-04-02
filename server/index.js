@@ -31,7 +31,7 @@ mongodb(function startServer() {
             '* @copyright ' + new Date().getFullYear() + ' ' + pkg.author.name,
             '* @license ' + pkg.license.type + ', ' + pkg.license.url,
             '*',
-            '*' + ' App started on port: '.blue + config.server.port.blue + ' - with environment: '.blue + config.environment.blue,
+            '*' + ' App started on port: '.blue + config.server.port + ' - with environment: '.blue + config.environment.blue,
             '*',
             '*************************************************************************************************',
             ''].join('\n');
