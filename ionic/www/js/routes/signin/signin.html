@@ -1,27 +1,25 @@
-<!--<ion-nav-bar>-->
-    <!--<ion-nav-back-button class="button-clear">-->
-        <!--<i class="ion-arrow-left-c"></i> Back-->
-    <!--</ion-nav-back-button>-->
-<!--</ion-nav-bar>-->
-<ion-header-bar class="bar-positive">
-    <h1 class="title">Sign In</h1>
-</ion-header-bar>
 <ion-view>
-    <ion-content>
-        <div class="list">
-            <label class="item item-input">
-                <span class="input-label">Username</span>
-                <input type="text" ng-model="credentials.email">
-            </label>
-            <label class="item item-input">
-                <span class="input-label">Password</span>
-                <input type="password" ng-model="credentials.password">
-            </label>
-        </div>
-        <div class="padding">
-            <button class="button button-block button-positive" ng-click="vm.signIn(credentials)">
-                Sign-In
-            </button>
-        </div>
+    <ion-content layout="column">
+        <form name="signinForm" ng-submit="vm.signIn(credentials)">
+            <md-content class="md-padding">
+                <md-input-container md-no-float>
+                        <input ng-model="credentials.email" type="email" name="email" placeholder="Email" ng-required="true">
+                        <div ng-if="signinForm.email.$invalid && signinForm.email.$dirty" ng-messages="signinForm.email.$error">
+                            <div ng-message="email">Your email address is invalid.</div>
+                        </div>
+                </md-input-container>
+                <md-input-container md-no-float>
+                    <input ng-model="credentials.password" type="password" name="password" placeholder="Password" ng-required="true">
+                    <div ng-if="signinForm.password.$invalid && signinForm.password.$dirty" ng-messages="signinForm.password.$error">
+                        <div ng-message="required">This is required.</div>
+                    </div>
+                </md-input-container>
+            </md-content>
+
+            <div class="padding">
+                <md-button type="submit" class="button button-block md-raised md-primary md-button md-default-theme">Sign In</md-button>
+            </div>
+        </form>
+        <p class="text-center text-muted text-small">Don't have an account yet? <button class="link-button" ng-click="vm.goToSignup()">Sign Up</button></p>
     </ion-content>
 </ion-view>

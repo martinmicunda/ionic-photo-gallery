@@ -12,6 +12,7 @@
         // angular modules
         'ngAnimate',
         'ngSanitize',
+        'ngMaterial',
 
         // 3rd party modules
         'ui.router',

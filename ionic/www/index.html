@@ -7,7 +7,9 @@
     <title></title>
 
     <link href="lib/ionic/css/ionic.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
+      <link href="lib/angular-material/angular-material.css" rel="stylesheet">
+      <link href="css/style.css" rel="stylesheet">
+
       <!--<link href="css/custom.app.css" rel="stylesheet">-->
 
     <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
@@ -17,31 +19,27 @@
   </head>
   <body ng-app="app">
     <ion-nav-view>
-        <ion-view hide-nav-bar="true" hide-back-button="true">
+        <ion-view hide-nav-bar="true" >
+            <ion-content class="padding text-center">
+                <div class="row row-center">
+                    <div class="col">
+                        <div>
+                            <span class="circle">MM</span>
+                            <p class="pb">
+                                By <a class="pseudo-link" href="http://martinmicunda.com" target="_blank">@martinmicunda</a>
+                            </p>
+                        </div>
 
-            <ion-content class="padding" scroll="false" style="padding-top: 100px;">
+                        <md-button class="button button-block md-raised md-primary md-button md-default-theme" ui-sref="signin">
+                            Sign In
+                        </md-button>
 
-                <div class="slogan">
-                    <p>
-                        A hybrid (ionic, cordova) app with authentication that allows registered users view a gallery of photos they
-                        have uploaded via the camera phone powered by a Node.js server!
-                    </p>
-
-                    <p>
-                        By <a class="pseudo-link" href="http://martinmicunda.com" target="_blank">@martinmicunda</a>
-                    </p>
+                        <md-button class="button button-block md-raised md-primary md-button md-default-theme" ui-sref="signup">
+                            Sign Up
+                        </md-button>
+                    </div>
                 </div>
-
-                <button class="button button-block button-positive" ui-sref="signin">
-                    Sign In
-                </button>
-
-                <button class="button button-block button-positive" ui-sref="signup">
-                    Sign up
-                </button>
-
             </ion-content>
-
         </ion-view>
     </ion-nav-view>
 
@@ -56,6 +54,10 @@
     <script src="lib/lodash/dist/lodash.compat.js"></script>
     <script src="lib/restangular/dist/restangular.js"></script>
     <script src="lib/angular-local-storage/dist/angular-local-storage.js"></script>
+    <script src="lib/angular-aria/angular-aria.js"></script>
+    <script src="lib/angular-animate/angular-animate.js"></script>
+    <script src="lib/angular-material/angular-material.js"></script>
+    <script src="lib/angular-messages/angular-messages.js"></script>
 
     <script src="lib/ngCordova/dist/ng-cordova.js"></script>
 

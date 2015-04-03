@@ -9,9 +9,14 @@
     'use strict';
 
     /* @ngInject */
-    function onConfig($urlRouterProvider, RestangularProvider, localStorageServiceProvider, SERVER_API_URL) {
+    function onConfig($urlRouterProvider, $mdThemingProvider, RestangularProvider, localStorageServiceProvider, SERVER_API_URL) {
         // use "ionic-photo-gallery" as a localStorage name prefix so app doesn’t accidently read data from another app using the same variable names
         localStorageServiceProvider.setPrefix('ionic-photo-gallery');
+
+        // set material design template
+        $mdThemingProvider.theme('default')
+            .primaryPalette('teal')
+            .accentPalette('orange');
 
         /*********************************************************************
          * Route provider configuration based on these config constant values

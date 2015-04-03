@@ -1,29 +1,39 @@
-<ion-header-bar class="bar-positive">
-    <h1 class="title">Sign Up</h1>
-</ion-header-bar>
 <ion-view>
-    <ion-content class="signup-page content-bg has-header" scroll="false" >
-        <div class="list">
-            <label class="item item-input username">
-                <input type="text" placeholder="First Name" ng-model="user.firstName">
-            </label>
-            <label class="item item-input username">
-                <input type="text" placeholder="Last Name" ng-model="user.lastName">
-            </label>
+    <ion-content layout="column">
+        <form name="signupForm" ng-submit="vm.signUp(user)">
+            <md-content class="md-padding">
+                <md-input-container md-no-float>
+                    <input type="text" placeholder="First Name" name="firstName" ng-model="user.firstName" ng-required="true">
+                    <div ng-if="signupForm.firstName.$invalid && signupForm.firstName.$dirty" ng-messages="signupForm.firstName.$error">
+                        <div ng-message="required">This is required.</div>
+                    </div>
+                </md-input-container>
+                <md-input-container md-no-float>
+                    <input type="text" placeholder="Last Name" name="lastName" ng-model="user.lastName" ng-required="true">
+                    <div ng-if="signupForm.lastName.$invalid && signupForm.lastName.$dirty" ng-messages="signupForm.lastName.$error">
+                        <div ng-message="required">This is required.</div>
+                    </div>
+                </md-input-container>
 
-            <label class="item item-input email">
-                <input type="text" placeholder="Email" ng-model="user.email">
-            </label>
+                <md-input-container md-no-float>
+                    <input type="email" placeholder="Email" name="email" ng-model="user.email" ng-required="true">
+                    <div ng-if="signupForm.email.$invalid && signupForm.email.$dirty" ng-messages="signupForm.email.$error" ng-required="true">
+                        <div ng-message="email">Your email address is invalid.</div>
+                    </div>
+                </md-input-container>
 
-            <label class="item item-input lock">
-                <input type="password" placeholder="Password" ng-model="user.password">
-            </label>
-        </div>
-
-        <div class="padding">
-            <button class="button button-block button-positive" ng-click="vm.signUp(user)">
-                SIGN UP
-            </button>
-        </div>
+                <md-input-container md-no-float>
+                    <input type="password" name="password" placeholder="Password" ng-model="user.password" ng-minlength="6" ng-required="true">
+                    <div ng-if="signupForm.password.$invalid && signupForm.password.$dirty" ng-messages="signupForm.password.$error">
+                        <div ng-message="minlength">6 characters minimum.</div>
+                    </div>
+                </md-input-container>
+            </md-content>
+            <div class="padding">
+                <md-button type="submit" class="button button-block md-raised md-primary md-button md-default-theme">Sign Up</md-button>
+            </div>
+        </form>
+        <p class="text-center text-muted text-small">Already have an account? <button class="link-button" ng-click="vm.goToSignin()">Sign In</button></p>
     </ion-content>
 </ion-view>
+

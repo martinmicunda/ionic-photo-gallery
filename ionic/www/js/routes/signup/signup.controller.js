@@ -22,7 +22,7 @@
      */
     function SignupCtrl($location, $rootScope, $state, Authentication) {
         var vm = this;
-
+        vm.user = {};
         vm.signUp = function(user) {
             Authentication.signup(user).then(function () {
                 // save user profile details to $rootScope
@@ -37,6 +37,10 @@
         vm.goHome = function() {
             $location.path('/');
         }
+
+        vm.goToSignin = function(){
+            $state.go('signin');
+        };
     }
 
     angular
