@@ -1,30 +1,27 @@
-<ion-view>
-    <ion-content layout="column">
-        <form name="signupForm" ng-submit="vm.signUp(user)">
+<ion-view class="signup-header">
+    <ion-content layout="column" class="has-header">
+        <form name="signupForm" ng-submit="vm.signUp(user, signupForm.$valid)">
             <md-content class="md-padding">
                 <md-input-container md-no-float>
-                    <input type="text" placeholder="First Name" name="firstName" ng-model="user.firstName" ng-required="true">
-                    <div ng-if="signupForm.firstName.$invalid && signupForm.firstName.$dirty" ng-messages="signupForm.firstName.$error">
-                        <div ng-message="required">This is required.</div>
-                    </div>
-                </md-input-container>
-                <md-input-container md-no-float>
-                    <input type="text" placeholder="Last Name" name="lastName" ng-model="user.lastName" ng-required="true">
-                    <div ng-if="signupForm.lastName.$invalid && signupForm.lastName.$dirty" ng-messages="signupForm.lastName.$error">
-                        <div ng-message="required">This is required.</div>
+                    <md-icon md-svg-src="img/icons/ic_person_24px.svg" class="md-default-theme" aria-hidden="true"></md-icon>
+                    <input type="text" placeholder="Name" name="name" ng-model="user.name" ng-required="true">
+                    <div ng-if="signupForm.name.$invalid && signupForm.name.$dirty" ng-messages="signupForm.name.$error" class="messages">
+                        <div ng-message="required">This field is required.</div>
                     </div>
                 </md-input-container>
 
                 <md-input-container md-no-float>
+                    <md-icon md-svg-src="img/icons/ic_mail_24px.svg" class="md-default-theme" aria-hidden="true"></md-icon>
                     <input type="email" placeholder="Email" name="email" ng-model="user.email" ng-required="true">
-                    <div ng-if="signupForm.email.$invalid && signupForm.email.$dirty" ng-messages="signupForm.email.$error" ng-required="true">
+                    <div ng-if="signupForm.email.$invalid && signupForm.email.$dirty" ng-messages="signupForm.email.$error" class="messages">
                         <div ng-message="email">Your email address is invalid.</div>
                     </div>
                 </md-input-container>
 
                 <md-input-container md-no-float>
-                    <input type="password" name="password" placeholder="Password" ng-model="user.password" ng-minlength="6" ng-required="true">
-                    <div ng-if="signupForm.password.$invalid && signupForm.password.$dirty" ng-messages="signupForm.password.$error">
+                    <md-icon md-svg-src="img/icons/ic_lock_24px.svg" class="md-default-theme" aria-hidden="true"></md-icon>
+                    <input type="password" placeholder="Password" name="password" ng-model="user.password" ng-minlength="6" ng-required="true">
+                    <div ng-if="signupForm.password.$invalid && signupForm.password.$dirty" ng-messages="signupForm.password.$error" class="messages">
                         <div ng-message="minlength">6 characters minimum.</div>
                     </div>
                 </md-input-container>

@@ -28,6 +28,11 @@
                         controller: 'GalleriesCtrl as vm'
                     }
                 },
+                resolve: {/* @ngInject */
+                    users: function(UserService){
+                        return UserService.getList();
+                    }
+                },
                 data: {
                     authenticate: true
                 }

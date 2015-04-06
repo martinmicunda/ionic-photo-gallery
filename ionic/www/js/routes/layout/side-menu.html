@@ -5,35 +5,76 @@
             </ion-nav-back-button>
 
             <ion-nav-buttons side="left">
+                <!--<md-button class="md-icon-button" aria-label="Menu" menu-toggle="left">-->
+                    <!--<md-icon md-svg-icon="img/icons/menu.svg"></md-icon>-->
+                <!--</md-button>-->
                 <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
                 </button>
             </ion-nav-buttons>
         </ion-nav-bar>
         <ion-nav-view name="menuContent"></ion-nav-view>
     </ion-side-menu-content>
-
+    <!--expose-aside-when="large"-->
     <ion-side-menu side="left">
-        <ion-header-bar class="bar-assertive">
-            <h1 class="title">Menu</h1>
-        </ion-header-bar>
-        <ion-content>
-            <ion-list>
-                <ion-item nav-clear menu-close ui-sref="app.gallery({ userId: $root.me._id })">
-                    My Gallery
-                </ion-item>
-                <ion-item nav-clear menu-close ui-sref="app.galleries">
-                    Galleries
-                </ion-item>
-                <ion-item nav-clear menu-close ui-sref="app.user({ userId: $root.me._id })">
-                    My Profile
-                </ion-item>
-                <ion-item nav-clear menu-close ui-sref="app.users">
-                    Users
-                </ion-item>
-                <ion-item nav-clear menu-close ng-click="vm.signOut()">
-                    Sign Out
-                </ion-item>
-            </ion-list>
+        <ion-content scroll="false" class="sidebar">
+            <div class="heading-item item item-avatar">
+                <img ng-src="./img/me.jpg" alt="avatar" >
+                <h2 class="greeting">{{$root.me.name}}</h2>
+                <p class="message">Welcome back</p>
+            </div>
+            <!--<ion-list class="nav sidebar-nav">-->
+                <!--<ion-item ui-sref="app.gallery({ userId: $root.me._id })" nav-clear menu-close>-->
+                    <!--&lt;!&ndash;<i class="sidebar-icon icon ion-image"></i>&ndash;&gt;-->
+                    <!--My Gallery-->
+                <!--</ion-item>-->
+                <!--&lt;!&ndash;<ion-item ui-sref="app.galleries" nav-clear menu-close>&ndash;&gt;-->
+                    <!--&lt;!&ndash;&lt;!&ndash;<i class="sidebar-icon icon ion-images"></i>&ndash;&gt;&ndash;&gt;-->
+                    <!--&lt;!&ndash;Galleries&ndash;&gt;-->
+                <!--&lt;!&ndash;</ion-item>&ndash;&gt;-->
+
+                <!--<ion-item nav-clear menu-close href="#/users">-->
+                    <!--&lt;!&ndash;<i class="sidebar-icon icon ion-images"></i>&ndash;&gt;-->
+                    <!--Users-->
+                <!--</ion-item>-->
+                <!--<ion-item nav-clear menu-close ui-sref="app.user({ userId: $root.me._id })">-->
+                    <!--&lt;!&ndash;<i class="sidebar-icon icon ion-images"></i>&ndash;&gt;-->
+                    <!--My Profile-->
+                <!--</ion-item>-->
+            <!--</ion-list>-->
+            <ul class="nav sidebar-nav">
+                <li md-ink-ripple="#333">
+                    <a ui-sref="app.gallery({ userId: $root.me._id })" nav-clear menu-close>
+                        <i class="sidebar-icon icon ion-image"></i>
+                        My Gallery
+                    </a>
+                </li>
+                <li md-ink-ripple="#333">
+                    <a ui-sref="app.galleries" nav-clear menu-close>
+                        <i class="sidebar-icon icon ion-images"></i>
+                        Galleries
+                    </a>
+                </li>
+                <li md-ink-ripple="#333">
+                    <a ui-sref="app.user({ userId: $root.me._id })" nav-clear menu-close>
+                        <i class="sidebar-icon icon ion-person"></i>
+                        My Profile
+                    </a>
+                </li>
+                <li md-ink-ripple="#333">
+                    <a ui-sref="app.users" nav-clear menu-close>
+                        <i class="sidebar-icon icon ion-person-stalker"></i>
+                        Users
+                    </a>
+                </li>
+                <li class="divider"></li>
+                <li md-ink-ripple="#333">
+                    <a ng-click="vm.signOut()">
+                        <i class="sidebar-icon icon ion-log-out"></i>
+                        Sign Out
+                    </a>
+                </li>
+            </ul>
         </ion-content>
     </ion-side-menu>
 </ion-side-menus>
+

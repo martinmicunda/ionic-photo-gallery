@@ -23,7 +23,8 @@
      */
     function SigninCtrl($rootScope, $state, Authentication, $cordovaVibration, $cordovaDialogs) {
         var vm = this;
-        vm.signIn = function(credentials) {
+        vm.signIn = function(credentials, isValid) {
+            if(!isValid) {return;}
             Authentication.signin(credentials).then(function () {
                 // save user profile details to $rootScope
                 $rootScope.me = Authentication.currentUser;
@@ -32,7 +33,6 @@
             }, function(error) {
                 $cordovaVibration.vibrate(100);
                 console.log('error ' + error);
-                $cordovaDialogs.alert('Invalid Username or Password', '', 'OK');
             });
         };
         vm.goToSignup = function(){

@@ -1,22 +1,31 @@
 <ion-view view-title="My Gallery">
-    <ion-content>
+    <ion-content class="gallery-view">
         <ion-refresher pulling-text="Pull to refresh..." on-refresh="vm.doRefresh()"></ion-refresher>
         <div class="row" style="margin-top: 100px; text-align: center" ng-if="vm.images.length === undefined || vm.images.length <= 0">
             <div class="col">
-                You have no images...
+                No images...
             </div>
         </div>
-        <ion-list can-swipe="vm.listCanSwipe" ng-if="vm.images.length > 0">
-            <ion-item ng-repeat="image in vm.images track by $index" class="item-thumbnail-left">
-                <p> {{image.fileName}} {{image.url}} </p>
-                <img ng-src="{{vm.apiUrl}}/{{image.url}}">
-                <ion-option-button class="button-assertive"
-                                   ng-click="vm.delete(image)">
-                    Delete
-                </ion-option-button>
-            </ion-item>
-        </ion-list>
-        <button class="button button-icon icon ion-camera" ng-click="vm.takePhoto()">Take image</button>
 
+        <!--<button class="button button-icon" ng-click="vm.takePhoto()"><i class="icon ion-camera"></i></button>-->
+        <div class="row galleries-list" ng-if="vm.images.length > 0">
+            <div ng-repeat="image in vm.images" class="col col-50">
+                <span class="gallery">
+                    <img class="gallery-image" ng-src="{{vm.apiUrl}}/{{image.url}}"/>
+                    <div class="gallery-bg"></div>
+                    <span class="gallery-title" ng-click="vm.delete(image)">
+                        <i class="ionic ion-ios-trash-outline"></i>
+                    </span>
+                </span>
+            </div>
+        </div>
+        <button class="md-fab md-primary md-fab-bottom-right camera md-button md-default-theme" aria-label="Take a picture" ng-click="vm.takePhoto()">
+            <i class="icon ion-camera"></i>
+        </button>
+        <!--<md-button class="md-fab md-primary md-fab-bottom-right camera" aria-label="Take a picture" ng-click="vm.takePhoto()">-->
+            <!--<i class="icon ion-camera"></i>-->
+        <!--</md-button>-->
     </ion-content>
 </ion-view>
+
+

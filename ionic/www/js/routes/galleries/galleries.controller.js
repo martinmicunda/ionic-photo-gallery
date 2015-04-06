@@ -17,8 +17,9 @@
      *
      * @ngInject
      */
-    function GalleriesCtrl() {
+    function GalleriesCtrl(users) {
         var vm = this;
+        vm.users = users;
 
     }
 

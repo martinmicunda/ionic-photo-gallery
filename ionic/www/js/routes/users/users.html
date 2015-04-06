@@ -1,10 +1,14 @@
 <ion-view view-title="Users">
-    <ion-content class="has-header">
-        <ion-list>
-            <ion-item ng-repeat="user in vm.users track by $index" type="item-text-wrap" ui-sref="app.user({ userId: user._id })">
-                <p> {{user.firstName}} {{user.lastName}}</p>
-            </ion-item>
-        </ion-list>
+    <ion-content>
+        <div ng-repeat="user in vm.users track by $index" ui-sref="app.user({ userId: user._id })" md-ink-ripple="#333">
+            <a class="item item-icon-left item-icon-right item-avatar" href="#"  ng-click="openBrowser()">
+                <img ng-src="../../../img/me.jpg" alt="avatar" />
+                <div class="pt-10">
+                    <span class="title">{{user.name}}</span>
+                </div>
+                <i class="icon ion-arrow-right-c"></i>
+            </a>
+        </div>
     </ion-content>
 </ion-view>
 

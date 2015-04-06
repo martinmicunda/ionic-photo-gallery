@@ -34,15 +34,10 @@ var validateLocalStrategyPassword = function(password) {
  * User Schema
  */
 var UserSchema = new mongoose.Schema({
-    firstName: {
+    name: {
         type: String,
         trim: true,
-        validate: [validateLocalStrategyProperty, 'Please fill in your first name']
-    },
-    lastName: {
-        type: String,
-        trim: true,
-        validate: [validateLocalStrategyProperty, 'Please fill in your last name']
+        validate: [validateLocalStrategyProperty, 'Please fill in your name']
     },
     email: {
         type: String,

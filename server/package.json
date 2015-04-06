@@ -10,11 +10,14 @@
     "main": "index.js",
     "scripts": {
         "start": "node index.js",
+        "dev": "nodemon app",
+        "debug": "nodemon app --debug",
         "jshint": "gulp jshint",
-        "serve": "gulp serve",
         "audit": "nsp audit-shrinkwrap && nsp audit-package",
         "missing": "npm ls --depth 1",
-        "outdated": "npm outdated --depth 0"
+        "outdated": "npm outdated --depth 0",
+        "prepush": "npm shrinkwrap && npm test",
+        "postmerge": "npm install"
     },
     "pre-commit": [
         "jshint",

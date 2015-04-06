@@ -94,9 +94,9 @@
                     .then(function() {
                         console.log('Image has been uploaded successfully: ' + fileTransferOptions.fileName);
                         q.resolve();
-                    }, function(err) {
-                        console.error('Image has not been uploaded successfully: ' + JSON.stringify(err));
-                        q.reject(err);
+                    }, function(error) {
+                        console.error('Image has not been uploaded successfully: ' + JSON.stringify(error));
+                        q.reject(error);
                     }).then(function() {
                         $ionicLoading.hide();
                         clearCache();
@@ -105,6 +105,7 @@
 
             function onFailure(error) {
                 console.error(error);
+                q.reject(error);
             }
 
             $cordovaCamera.getPicture(_cameraOptions).then(onSuccess, onFailure);

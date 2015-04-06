@@ -9,14 +9,15 @@
     'use strict';
 
     /* @ngInject */
-    function onConfig($urlRouterProvider, $mdThemingProvider, RestangularProvider, localStorageServiceProvider, SERVER_API_URL) {
+    function onConfig($urlRouterProvider, RestangularProvider, localStorageServiceProvider, SERVER_API_URL) {
         // use "ionic-photo-gallery" as a localStorage name prefix so app doesn’t accidently read data from another app using the same variable names
         localStorageServiceProvider.setPrefix('ionic-photo-gallery');
 
         // set material design template
-        $mdThemingProvider.theme('default')
-            .primaryPalette('teal')
-            .accentPalette('orange');
+        //$mdThemingProvider.theme('default')
+        //    .primaryPalette('teal')
+        //    .accentPalette('brown')
+        //    .warnPalette('deep-orange');
 
         /*********************************************************************
          * Route provider configuration based on these config constant values
@@ -29,12 +30,7 @@
             id: '_id'
         });
 
-        // for any unmatched url, send to 404 page (Not page found)
-        //$urlRouterProvider.otherwise('/404');
-
-        // the `when` method says if the url is `/` redirect to `/signin`
-        //$urlRouterProvider.when('/', '/#/galleries');
-        //$urlRouterProvider.otherwise('/galleries');
+        $urlRouterProvider.otherwise('/signin');
     }
 
     /* @ngInject */
@@ -57,7 +53,7 @@
                 if(toState.data.authenticate && !Authentication.isAuthenticated()) {
                     console.log('No authorized!');
                     event.preventDefault();
-                    $location.path('/');
+                    $location.path('/#/signin');
                 }
             });
         });
@@ -67,5 +63,5 @@
         .module('app.core')
         .config(onConfig)
         .run(onRun)
-        .constant('SERVER_API_URL', 'http://172.20.10.3:3000'); //192.168.0.100
+        .constant('SERVER_API_URL', 'http://192.168.0.100:3000'); //192.168.0.100 - 172.20.10.3
 })();

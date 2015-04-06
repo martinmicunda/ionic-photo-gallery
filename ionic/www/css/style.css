@@ -1,3 +1,7 @@
+.signin-header, .signup-header {
+    border-top: 2px solid rgb(0,150,136);
+}
+
 .circle {
     width:500px;
     height:500px;
@@ -6,7 +10,7 @@
     color:#fff;
     line-height:130px;
     text-align:center;
-    background-color: #009688;
+    background-color: rgb(0,150,136);
     padding: 30px;
 }
 
@@ -14,8 +18,11 @@
     text-align: center;
 }
 
-.pb {
-    padding-bottom: 100px;
+.pb-50 {
+    padding-bottom: 50px;
+}
+.pt-10 {
+    padding-top: 10px;
 }
 .pseudo-link {
     color: black;
@@ -24,16 +31,16 @@
 }
 
 /* vertical center */
-.scroll-content {
-    display: table !important;
-    width: 100% !important;
-    height: 100% !important;
-}
-.scroll {
-    display: table-cell;
-    vertical-align: middle;
-    text-align: center;
-}
+/*.scroll-content {*/
+    /*display: table !important;*/
+    /*width: 100% !important;*/
+    /*height: 100% !important;*/
+/*}*/
+/*.scroll {*/
+    /*display: table-cell;*/
+    /*vertical-align: middle;*/
+    /*text-align: center;*/
+/*}*/
 a {
     color: #333;
     text-decoration: none;
@@ -61,3 +68,168 @@ textarea, input[type="text"], input[type="password"], input[type="datetime"], in
     border-left-width: 0;
 }
 
+md-input-container.md-default-theme:not(.md-input-invalid).md-input-focused md-icon {
+    fill: rgb(0,150,136)
+}
+
+md-input-container.md-input-invalid > md-icon {
+    fill: rgb(244,67,54)
+}
+.messages {
+    margin-left: 56px;
+}
+
+
+.bar.bar-positive {
+    background-color: rgb(0,150,136);
+    border-color: #00796B;
+    background-image: linear-gradient(0deg, #00796B, #00796B 50%, transparent 50%);
+}
+
+.heading-item {
+    background-color: #00796B;
+}
+.heading-item .greeting {
+    color: #fff;
+    font-weight: bold;
+}
+.heading-item .message {
+    color: #fff;
+}
+.item-avatar {
+    padding-top: 25px;
+    min-height: 80px;
+}
+.item-avatar > img:first-child {
+    border: 1px solid #fff;
+    top: 25px;
+}
+.sidebar .sidebar-nav {
+    margin: 0;
+    padding: 0;
+}
+.sidebar .sidebar-nav li {
+    position: relative;
+    list-style-type: none;
+}
+.sidebar-default .sidebar-nav li > a {
+    background-color: transparent;
+    font-family: 'RobotoDraft', 'Roboto', 'Helvetica Neue, Helvetica, Arial', sans-serif;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 1.4;
+}
+.sidebar .sidebar-nav li a {
+    position: relative;
+    cursor: pointer;
+    user-select: none;
+    display: block;
+    height: 48px;
+    line-height: 48px;
+    padding: 0;
+    padding-left: 16px;
+    padding-right: 56px;
+    text-decoration: none;
+    clear: both;
+    font-weight: 500;
+    overflow: hidden;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    -webkit-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+}
+.sidebar-nav li > a i {
+    color: #757575;
+}
+.sidebar .sidebar-icon {
+    display: inline-block;
+    margin-right: 16px;
+    min-width: 40px;
+    width: 40px;
+    text-align: left;
+    font-size: 20px;
+    font-weight: 300;
+    color: #333;
+}
+.sidebar-nav .divider {
+    background-color: #bdbdbd;
+}
+.sidebar .sidebar-divider, .sidebar .sidebar-nav .divider {
+    position: relative;
+    display: block;
+    height: 1px;
+    margin: 8px 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.item.activated {
+    background-color: transparent;
+}
+.camera {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+}
+.camera i {
+    font-size: 30px;
+}
+
+
+/* Galleries view */
+.galleries-list {
+    flex-wrap: wrap;
+    -webkit-flex-flow: row wrap;
+}
+.gallery {
+    height: calc(50vw - 15px);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    border-radius: 2px;
+    background-color: #FFF;
+    position: relative;
+    display: block;
+}
+.gallery .gallery-image {
+    width: 100%;
+    height: 100%;
+    border-radius: 2px;
+}
+.gallery .gallery-bg {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background: rgba(42, 42, 42, 0.3);
+}
+.gallery .gallery-title, .galleries-view .gallery .gallery-title {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 20%;
+    background: rgba(0,0,0,0.5);
+    color: #fff;
+}
+.galleries-view .gallery .gallery-title {
+    padding: 3px 5px;
+}
+.gallery-view .gallery .gallery-title {
+    text-align: center;
+}
+.gallery .gallery-title i {
+    font-size: 2em;
+}
+.gallery .gallery-title h5, .gallery .gallery-title h6 {
+    color: #fff;
+    margin: 0;
+}
+
+/* TODO: Remove this once issue with ngMaterial is fix */
+.md-button.md-default-theme.md-primary.md-fab, .md-button.md-default-theme.md-primary {
+    color: rgb(255,255,255);
+    background-color: rgb(0,150,136);
+}
