@@ -63,5 +63,5 @@
         .module('app.core')
         .config(onConfig)
         .run(onRun)
-        .constant('SERVER_API_URL', 'http://172.20.10.3:3000'); //192.168.0.100 - 172.20.10.3
+        .constant('SERVER_API_URL', 'http://127.0.0.1:3000'); //192.168.0.100 - 172.20.10.3
 })();
