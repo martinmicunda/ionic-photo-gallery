@@ -14,33 +14,14 @@
         </ion-nav-bar>
         <ion-nav-view name="menuContent"></ion-nav-view>
     </ion-side-menu-content>
-    <!--expose-aside-when="large"-->
-    <ion-side-menu side="left">
+
+    <ion-side-menu side="left" expose-aside-when="large">
         <ion-content scroll="false" class="sidebar">
             <div class="heading-item item item-avatar">
-                <img ng-src="./img/me.jpg" alt="avatar" >
+                <img ng-src="{{$root.me.avatar}}" alt="avatar" >
                 <h2 class="greeting">{{$root.me.name}}</h2>
                 <p class="message">Welcome back</p>
             </div>
-            <!--<ion-list class="nav sidebar-nav">-->
-                <!--<ion-item ui-sref="app.gallery({ userId: $root.me._id })" nav-clear menu-close>-->
-                    <!--&lt;!&ndash;<i class="sidebar-icon icon ion-image"></i>&ndash;&gt;-->
-                    <!--My Gallery-->
-                <!--</ion-item>-->
-                <!--&lt;!&ndash;<ion-item ui-sref="app.galleries" nav-clear menu-close>&ndash;&gt;-->
-                    <!--&lt;!&ndash;&lt;!&ndash;<i class="sidebar-icon icon ion-images"></i>&ndash;&gt;&ndash;&gt;-->
-                    <!--&lt;!&ndash;Galleries&ndash;&gt;-->
-                <!--&lt;!&ndash;</ion-item>&ndash;&gt;-->
-
-                <!--<ion-item nav-clear menu-close href="#/users">-->
-                    <!--&lt;!&ndash;<i class="sidebar-icon icon ion-images"></i>&ndash;&gt;-->
-                    <!--Users-->
-                <!--</ion-item>-->
-                <!--<ion-item nav-clear menu-close ui-sref="app.user({ userId: $root.me._id })">-->
-                    <!--&lt;!&ndash;<i class="sidebar-icon icon ion-images"></i>&ndash;&gt;-->
-                    <!--My Profile-->
-                <!--</ion-item>-->
-            <!--</ion-list>-->
             <ul class="nav sidebar-nav">
                 <li md-ink-ripple="#333">
                     <a ui-sref="app.gallery({ userId: $root.me._id })" nav-clear menu-close>

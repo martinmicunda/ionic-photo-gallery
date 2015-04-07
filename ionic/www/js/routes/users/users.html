@@ -1,8 +1,8 @@
 <ion-view view-title="Users">
     <ion-content>
-        <div ng-repeat="user in vm.users track by $index" ui-sref="app.user({ userId: user._id })" md-ink-ripple="#333">
-            <a class="item item-icon-left item-icon-right item-avatar" href="#"  ng-click="openBrowser()">
-                <img ng-src="../../../img/me.jpg" alt="avatar" />
+        <div ng-repeat="user in vm.users" ui-sref="app.user({ userId: user._id })" md-ink-ripple="#333">
+            <a class="item item-icon-left item-icon-right item-avatar" ng-click="openBrowser()">
+                <img ng-src="{{user.avatar}}" alt="{{user.name}}" />
                 <div class="pt-10">
                     <span class="title">{{user.name}}</span>
                 </div>

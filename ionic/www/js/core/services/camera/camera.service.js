@@ -57,7 +57,8 @@
             mimeType: 'image/png',
             chunkedMode: false,
             params: { // these options.params, will be available in req.body at the server-side
-                userId: $rootScope.me._id
+                userId: $rootScope.me._id,
+                url: SERVER_API_URL
             },
             headers: {
                 Authorization: 'Bearer ' + Token.get()

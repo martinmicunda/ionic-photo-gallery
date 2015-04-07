@@ -21,13 +21,13 @@
      *
      * @ngInject
      */
-    function SigninCtrl($rootScope, $state, Authentication, $cordovaVibration, $cordovaDialogs) {
+    function SigninCtrl($rootScope, $state, Authentication, $cordovaVibration) {
         var vm = this;
         vm.signIn = function(credentials, isValid) {
             if(!isValid) {return;}
             Authentication.signin(credentials).then(function () {
                 // save user profile details to $rootScope
-                $rootScope.me = Authentication.currentUser;
+                $rootScope.me = Authentication.getCurrentUser();
 
                 $state.go('app.gallery', { userId: $rootScope.me._id});
             }, function(error) {

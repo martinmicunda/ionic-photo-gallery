@@ -27,7 +27,7 @@
             if(!isValid) {return;}
             Authentication.signup(user).then(function () {
                 // save user profile details to $rootScope
-                $rootScope.me = Authentication.currentUser;
+                $rootScope.me = Authentication.getCurrentUser();
 
                 $state.go('app.gallery', { userId: $rootScope.me._id});
             }, function(err) {

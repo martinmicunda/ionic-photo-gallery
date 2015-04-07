@@ -3,11 +3,11 @@
         <div class="row galleries-list">
             <div ng-repeat="user in vm.users" class="col col-50">
                 <a ui-sref="app.gallery({ userId: user._id })" class="gallery">
-                    <img class="gallery-image" ng-src="{{vm.apiUrl}}/{{image.url}}" src="../../../img/me.jpg"/>
+                    <img class="gallery-image" ng-src="{{::user.avatar}}" />
                     <div class="gallery-bg"></div>
                     <div class="gallery-title">
-                        <h5>{{user.name}}</h5>
-                        <h6>8 image(s)</h6>
+                        <h5>{{::user.name}}</h5>
+                        <!--<h6>8 image(s)</h6>-->
                     </div>
                 </a>
             </div>

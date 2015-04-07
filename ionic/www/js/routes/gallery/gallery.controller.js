@@ -15,7 +15,6 @@
      * @requires $scope
      * @requires $stateParams
      * @requires images
-     * @requires SERVER_API_URL
      * @requires CameraService
      * @requires ImageService
      * @requires $ionicLoading
@@ -24,11 +23,12 @@
      *
      * @ngInject
      */
-    function GalleryCtrl($scope, $stateParams, images, SERVER_API_URL, CameraService, ImageService, $ionicLoading) {
+    function GalleryCtrl($rootScope, $scope, $stateParams, images, CameraService, ImageService, $ionicLoading) {
         var vm = this;
         vm.listCanSwipe = true;
         vm.images = images;
-        vm.apiUrl = SERVER_API_URL;
+        vm.title = $rootScope.me._id === $stateParams.userId ? 'My Gallery' : 'Gallery';
+        vm.isCameraAvailable = $rootScope.me._id === $stateParams.userId;
         vm.takePhoto = function() {
             CameraService.takePicture().then(function() {
                 ImageService.getByUser($stateParams.userId).then(function(images) {

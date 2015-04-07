@@ -52,7 +52,9 @@
                 isAuthenticated: function() {
                     return !!Token.get();
                 },
-                currentUser: currentUser || localStorageService.get('user')
+                getCurrentUser: function() {
+                    return currentUser || localStorageService.get('user')
+                }
             };
         };
     }

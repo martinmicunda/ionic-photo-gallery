@@ -37,7 +37,7 @@
     function onRun($ionicPlatform, $rootScope, $location, Authentication) {
         $ionicPlatform.ready(function() {
             // save user profile details to $rootScope
-            $rootScope.me = Authentication.currentUser;
+            $rootScope.me = Authentication.getCurrentUser();
 
             // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
             // for form inputs)
@@ -63,5 +63,5 @@
         .module('app.core')
         .config(onConfig)
         .run(onRun)
-        .constant('SERVER_API_URL', 'http://192.168.0.100:3000'); //192.168.0.100 - 172.20.10.3
+        .constant('SERVER_API_URL', 'http://172.20.10.3:3000'); //192.168.0.100 - 172.20.10.3
 })();

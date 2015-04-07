@@ -1,5 +1,5 @@
 <ion-view class="signin-header">
-    <ion-content layout="column" class="has-header">
+    <ion-content scroll="false" layout="column" class="has-header">
         <div class="text-center">
             <span class="circle">MM</span>
             <p class="pb-50">
@@ -9,14 +9,18 @@
         <form name="signinForm" ng-submit="vm.signIn(credentials, signinForm.$valid)">
             <md-content class="md-padding">
                 <md-input-container md-no-float>
-                    <md-icon md-svg-src="img/icons/ic_mail_24px.svg" class="md-default-theme" aria-hidden="true"></md-icon>
+                    <md-icon md-svg-src="img/icons/ic_mail_24px.svg" class="md-default-theme" aria-hidden="true">
+                        <i class="icon ion-email"></i>
+                    </md-icon>
                     <input ng-model="credentials.email" type="email" name="email" placeholder="Email" ng-required="true">
                     <div ng-if="signinForm.email.$invalid && signinForm.email.$dirty" ng-messages="signinForm.email.$error" class="messages">
                         <div ng-message="email">Your email address is invalid.</div>
                     </div>
                 </md-input-container>
                 <md-input-container md-no-float>
-                    <md-icon md-svg-src="img/icons/ic_lock_24px.svg" class="md-default-theme" aria-hidden="true"></md-icon>
+                    <md-icon md-svg-src="img/icons/ic_lock_24px.svg" class="md-default-theme" aria-hidden="true">
+                        <i class="icon ion-locked"></i>
+                    </md-icon>
                     <input ng-model="credentials.password" type="password" name="password" placeholder="Password" ng-required="true">
                     <div ng-if="signinForm.password.$invalid && signinForm.password.$dirty" ng-messages="signinForm.password.$error" class="messages">
                         <div ng-message="required">This field is required.</div>

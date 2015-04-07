@@ -29,7 +29,17 @@
     font-size: 15px;
     text-decoration: none;
 }
-
+.profile-view .item-avatar {
+    padding-left: 0px;
+}
+.profile-view .item-avatar > img:first-child {
+    max-width: 60px;
+    max-height: 60px;
+    text-align: center;
+    position: relative;
+    left: 0;
+    margin-bottom: 15px;
+}
 /* vertical center */
 /*.scroll-content {*/
     /*display: table !important;*/
@@ -232,4 +242,17 @@ md-input-container.md-input-invalid > md-icon {
 .md-button.md-default-theme.md-primary.md-fab, .md-button.md-default-theme.md-primary {
     color: rgb(255,255,255);
     background-color: rgb(0,150,136);
+}
+md-input-container:not(.md-input-has-value) input:not(:focus) {
+    color: inherit;
+}
+md-icon i {
+    padding-left: 15px;
+    font-size: 20px;
+}
+.messages {
+    color: red;
+}
+md-input-container > md-icon {
+    top: 10px;
 }
