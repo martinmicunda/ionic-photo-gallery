@@ -24,13 +24,6 @@ var validateLocalStrategyProperty = function(property) {
 };
 
 /**
- * A Validation function for local strategy password
- */
-var validateLocalStrategyPassword = function(password) {
-    return (this.provider !== 'local' || (password && password.length >= 6));
-};
-
-/**
  * User Schema
  */
 var UserSchema = new mongoose.Schema({
@@ -50,15 +43,14 @@ var UserSchema = new mongoose.Schema({
     },
     password: {
         type: String,
-        required: true,
-        validate: [validateLocalStrategyPassword, 'Password should be longer']
+        required: true
     },
     salt: {
         type: String
     },
-    profileImageURL: {
+    avatar: {
         type: String,
-        default: 'modules/users/img/profile/default.png'
+        default: 'https://raw.githubusercontent.com/martinmicunda/employee-scheduling-ui/master/src/images/anonymous.jpg?123456'
     },
     provider: {
         type: String,

@@ -9,9 +9,13 @@
 
 var config = {};
 
+config.environment = process.env.NODE_ENV || 'development';
+
+// Upload files in memory
 config.uploadFilesInMemory = false;
 
-config.environment = process.env.NODE_ENV || 'development';
+// Populate the DB with sample data
+config.seedDB = true;
 
 // Token settings
 config.token = {

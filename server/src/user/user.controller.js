@@ -22,7 +22,7 @@ var User   = require('./user.model.js');
  * @api public
  */
 function findById(req, res) {
-    return User.findById(req.params.id, 'name email profileImageURL', function (err, user) {
+    return User.findById(req.params.id, 'name email avatar', function (err, user) {
         if (err) {
             logger.error(err.message);
             return res.status(400).send(err);

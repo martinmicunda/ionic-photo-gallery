@@ -10,6 +10,7 @@
 /**
  * Module dependencies.
  */
+var path   = require('path');
 var logger = require('mm-node-logger')(module);
 var Image  = require('./image.model.js');
 
@@ -43,7 +44,7 @@ function findByUser(req, res) {
 function create(req, res) {
     var image = new Image();
     image.fileName = req.files.image.name;
-    image.url = req.files.image.path;
+    image.url = path.join(req.body.url, req.files.image.path);
     image.user = req.body.userId;
 
     image.save(function(err, image) {

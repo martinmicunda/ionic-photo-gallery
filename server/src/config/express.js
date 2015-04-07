@@ -159,6 +159,17 @@ function initErrorRoutes(app) {
 }
 
 /**
+ * Populate DB with sample data.
+ *
+ * @method initDB
+ * @private
+ */
+function initDB() {
+    if(config.seedDB) {
+        require('./seed');
+    }
+}
+/**
  * Initialize the Express application.
  *
  * @method init
@@ -185,6 +196,9 @@ function init() {
 
     // Initialize error routes
     initErrorRoutes(app);
+
+    // Initialize DB with sample data
+    initDB();
 
     return app;
 }
