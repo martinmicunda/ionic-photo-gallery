@@ -8,7 +8,7 @@
   },
   "private": true,
   "scripts": {
-    "start": "ionic serve -s -c --lab --address 10.0.2.15 ",
+    "start": "ionic serve -s -c --lab",
     "postinstall": "bower install"
   },
   "repository": {
