@@ -32,7 +32,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
     config.vm.synced_folder ".", "/home/vagrant/ionic-photo-gallery"
 
-    # Provision the VirtualBoxes with Ansible
+    # Provision the VirtualBoxe with Ansible
     config.vm.provision "ansible" do |ansible|
         ansible.playbook = "ansible/playbook.yml"
         ansible.raw_arguments = ['-v']
