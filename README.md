@@ -4,7 +4,6 @@ Ionic Photo Gallery
 A hybrid app with authentication that allows registered users view a gallery of photos they have uploaded via the camera phone.
 
 ![Ionic Photo Gallery Screenshots I](ionic-photo-gallery-screenshots-I.jpg "Ionic Photo Gallery Screenshots I")
-
 ![Ionic Photo Gallery Screenshots II](ionic-photo-gallery-screenshots-II.jpg "Ionic Photo Gallery Screenshots II")
 
 ## Table of Contents
