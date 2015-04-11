@@ -54,7 +54,7 @@ $ cd ionic-photo-gallery
 **2.** The following command would add a new `ubuntu trusty64 box`, and if an existing one is found, it will override it:
 
 ```bash
-$ vagrant box add trusty64 http://files.vagrantup.com/trusty64.box --force
+$ vagrant box add ubuntu/trusty64 --force
 ```
 >**NOTE:** This process may take a while, as most Vagrant boxes will be at least **200 MB** big.
 
