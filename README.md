@@ -1,7 +1,7 @@
 Ionic Photo Gallery
 ======================
 
-A hybrid app with authentication that allows registered users view a gallery of photos they have uploaded via the camera phone.
+A hybrid app with authentication that allows registered users view a gallery of photos they have uploaded via the camera phone. The blog post I have written about this project can be found on my [blog](http://martinmicunda.com/2015/04/10/build-ionic-photo-gallery-app-I/). 
 
 ![Ionic Photo Gallery Screenshots I](ionic-photo-gallery-screenshots-I.jpg "Ionic Photo Gallery Screenshots I")
 ![Ionic Photo Gallery Screenshots II](ionic-photo-gallery-screenshots-II.jpg "Ionic Photo Gallery Screenshots II")
