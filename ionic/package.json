@@ -33,5 +33,8 @@
     "org.apache.cordova.vibration",
     "org.apache.cordova.file-transfer",
     "org.apache.cordova.dialogs"
+  ],
+  "cordovaPlatforms": [
+    "android"
   ]
 }

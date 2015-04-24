@@ -28,5 +28,5 @@
       - "python-dev"
       - "zlibc"
       - "android-tools-adb"
-    android_sdks_to_install: "platform-tool,build-tools-21.1.2,build-tools-20.0.0,build-tools-19.1.0,android-21,android-20,android-19"
+    android_sdks_to_install: "platform-tool,build-tools-22.0.1,build-tools-21.1.2,build-tools-20.0.0,build-tools-19.1.0,android-22,android-21,android-20,android-19"
 

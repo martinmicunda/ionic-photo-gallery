@@ -1,6 +1,6 @@
 {
     "name": "ionic-photo-gallery-server",
-    "version": "0.0.5",
+    "version": "0.0.6",
     "description": "A hybrid app with authentication that allows registered users view a gallery of photos they have uploaded via the camera phone.",
     "author": {
         "name": "Martin Micunda",
