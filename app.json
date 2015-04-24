@@ -12,10 +12,7 @@
     "mongo",
     "mobile"
   ],
-  "env": {
-    "UPLOAD_FILES_IN_MEMORY": "true",
-    "IS_REDIS_AVAILABLE": "false"
-  },
+  "env": {},
   "addons": [
     "mongolab",
     "redistogo:nano",
