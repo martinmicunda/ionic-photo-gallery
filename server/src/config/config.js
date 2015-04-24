@@ -12,7 +12,7 @@ var config = {};
 config.environment = process.env.NODE_ENV || 'development';
 
 // Upload files in memory
-config.uploadFilesInMemory = process.env.UPLOAD_FILES_IN_MEMORY || true;
+config.uploadFilesInMemory = process.env.UPLOAD_FILES_IN_MEMORY || false;
 
 // Populate the DB with sample data
 config.seedDB = true;
@@ -31,7 +31,7 @@ config.server = {
 
 // MongoDB settings
 config.mongodb = {
-    dbURI: "mongodb://127.0.0.1:27017/ionic-photo-gallery",
+    dbURI: process.env.MONGODB_URI || process.env.MONGOLAB_URI || "mongodb://127.0.0.1:27017/ionic-photo-gallery",
     dbOptions: {"user": "", "pass": ""}
 };
 
