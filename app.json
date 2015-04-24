@@ -2,7 +2,6 @@
   "name": "Ionic Photo Gallery",
   "description": "A hybrid app with authentication that allows registered users view a gallery of photos they have uploaded via the camera phone.",
   "repository": "https://github.com/ccoenraets/directory-ionic-nodejs",
-  "logo": "https://node-js-sample.herokuapp.com/node.svg",
   "keywords": [
     "node",
     "express",
