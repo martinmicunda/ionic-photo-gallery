@@ -13,8 +13,8 @@
     "mobile"
   ],
   "env": {
-    "UPLOAD_FILES_IN_MEMORY": true,
-    "IS_REDIS_AVAILABLE": false
+    "UPLOAD_FILES_IN_MEMORY": "true",
+    "IS_REDIS_AVAILABLE": "false"
   },
   "addons": ["mongolab"]
 }
