@@ -1,6 +1,6 @@
 {
     "name": "ionic-photo-gallery-server",
-    "version": "0.0.4",
+    "version": "0.0.5",
     "description": "A hybrid app with authentication that allows registered users view a gallery of photos they have uploaded via the camera phone.",
     "author": {
         "name": "Martin Micunda",
@@ -41,6 +41,8 @@
     "keywords": [
         "mm",
         "ionic",
+        "node",
+        "express",
         "mobile"
     ],
     "dependencies": {
@@ -73,7 +75,7 @@
         "url": "https://github.com/martinmicunda/ionic-photo-gallery/master/LICENSE"
     },
     "engines": {
-        "node": ">=0.10",
+        "node": ">=0.12",
         "npm": ">=2.x"
     }
 }

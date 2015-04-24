@@ -26,7 +26,7 @@ config.token = {
 // Server settings
 config.server = {
     host: '0.0.0.0',
-    port: process.env.NODE_PORT || 3000
+    port: process.env.NODE_PORT || process.env.PORT || 3000
 };
 
 // MongoDB settings
@@ -44,7 +44,7 @@ if (process.env.REDISTOGO_URL) {
     process.env.REDIS_AUTH = rtg.auth.split(":")[1];
 }
 config.redis = {
-    isAvailable: process.env.IS_REDIS_AVAILABLE || true,
+    isAvailable: process.env.IS_REDIS_AVAILABLE || "true",
     host: process.env.REDIS_HOST || '127.0.0.1',
     port: process.env.REDIS_PORT || 6379,
     auth: process.env.REDIS_AUTH || '',
