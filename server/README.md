@@ -2,7 +2,7 @@ Ionic Photo Gallery
 ======================
  
 [![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy?template=https://github.com/martinmicunda/ionic-photo-gallery/tree/heroku)
-[![NPM](http://img.shields.io/npm/v/buckets.svg?style=flat)](https://www.npmjs.org/package/ionic-photo-gallery-server)
+[![NPM](http://img.shields.io/npm/v/ionic-photo-gallery.svg?style=flat)](https://www.npmjs.org/package/ionic-photo-gallery-server)
 
 A hybrid app with authentication that allows registered users view a gallery of photos they have uploaded via the camera phone. The blog post I have written about this project can be found on my [blog](http://martinmicunda.com/2015/04/10/build-ionic-photo-gallery-app-I/). 
 
