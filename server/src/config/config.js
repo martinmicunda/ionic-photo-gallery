@@ -12,7 +12,7 @@ var config = {};
 config.environment = process.env.NODE_ENV || 'development';
 
 // Upload files in memory
-config.uploadFilesInMemory = false;
+config.uploadFilesInMemory = process.env.UPLOAD_FILES_IN_MEMORY || true;
 
 // Populate the DB with sample data
 config.seedDB = true;
@@ -37,6 +37,7 @@ config.mongodb = {
 
 // Redis settings
 config.redis = {
+    isAvailable: process.env.IS_REDIS_AVAILABLE || true,
     host: process.env.REDIS_HOST || '127.0.0.1',
     port: process.env.REDIS_PORT || 6379,
     options: {

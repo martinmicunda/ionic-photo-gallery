@@ -37,5 +37,7 @@ mongodb(function startServer() {
             ''].join('\n');
         logger.info(serverBanner);
     });
+
+    module.exports = app;
 });
 

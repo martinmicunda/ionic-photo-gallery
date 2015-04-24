@@ -1,12 +1,11 @@
 {
     "name": "ionic-photo-gallery-server",
-    "version": "0.0.0",
+    "version": "0.0.1",
     "description": "A hybrid app with authentication that allows registered users view a gallery of photos they have uploaded via the camera phone.",
     "author": {
         "name": "Martin Micunda",
         "url": "http://martinmicunda.com"
     },
-    "private": true,
     "main": "index.js",
     "scripts": {
         "start": "node index.js",
@@ -34,10 +33,11 @@
         "url": "https://github.com/martinmicunda/ionic-photo-gallery/issues"
     },
     "files": [
-        "lib",
+        "src",
         "index.js",
         "LICENSE",
-        "README.md"
+        "README.md",
+        "Procfile"
     ],
     "keywords": [
         "mm",

@@ -68,16 +68,22 @@ function createToken(payload, cb) {
      */
     var token = jwt.sign(payload, config.token.secret, { expiresInMinutes: config.token.expiration });
 
-    // stores a token with payload data for a ttl period of time
-    redis.setex(token, ttl, JSON.stringify(payload), function(token, err, reply) {
-        if (err) { return cb(err); }
+    if(redis) {
+        // stores a token with payload data for a ttl period of time
+        redis.setex(token, ttl, JSON.stringify(payload), function (token, err, reply) {
+            if (err) {
+                return cb(err);
+            }
 
-        if(reply) {
-            cb(null, token);
-        } else {
-            cb(new Error('Token not set in Redis'));
-        }
-    }.bind(null, token));
+            if (reply) {
+                cb(null, token);
+            } else {
+                cb(new Error('Token not set in Redis'));
+            }
+        }.bind(null, token));
+    } else {
+        cb(null, token);
+    }
 }
 
 /**
@@ -94,14 +100,22 @@ function expireToken(headers, cb) {
 
         if(token == null) {return cb(new Error('Token is null'));}
 
-        // delete token from redis
-        redis.del(token, function(err, reply) {
-            if(err) {return cb(err);}
+        if(redis) {
+            // delete token from redis
+            redis.del(token, function (err, reply) {
+                if (err) {
+                    return cb(err);
+                }
 
-            if(!reply) {return cb(new Error('Token not found'));}
+                if (!reply) {
+                    return cb(new Error('Token not found'));
+                }
 
-            return cb(null, true);
-        });
+                return cb(null, true);
+            });
+        } else {
+            cb(null, true);
+        }
     } catch (err) {
         return cb(err);
     }
@@ -121,14 +135,18 @@ function verifyToken(headers, cb) {
 
         if(token == null) {return cb(new Error('Token is null'));}
 
-        // gets the associated data of the token
-        redis.get(token, function(err, userData) {
-            if(err) {return cb(err);}
+        if(redis) {
+            // gets the associated data of the token
+            redis.get(token, function(err, userData) {
+                if(err) {return cb(err);}
 
-            if(!userData) {return cb(new Error('Token not found'));}
+                if(!userData) {return cb(new Error('Token not found'));}
 
-            return cb(null, JSON.parse(userData));
-        });
+                return cb(null, JSON.parse(userData));
+            });
+        } else {
+            cb(null, true);
+        }
     } catch (err) {
         return cb(err);
     }

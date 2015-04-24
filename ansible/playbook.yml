@@ -16,9 +16,9 @@
     android_sdk_download_location: http://dl.google.com/android/android-sdk_r24.1.2-linux.tgz
     android_sdk_install_location: /home/vagrant/android-sdk-linux
     android_sdk_dependency_packages:
-      - "libncurses5:i386"
-      - "libstdc++6:i386"
-      - "zlib1g:i386"
+      - "libncurses5" #libncurses5:i386
+      - "libstdc++6" #libstdc++6:i386
+      - "zlib1g" #zlib1g:i386
       - "imagemagick"
       - "expect"
       - "ant"
