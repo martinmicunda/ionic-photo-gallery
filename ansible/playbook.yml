@@ -17,8 +17,10 @@
     android_sdk_install_location: /home/vagrant/android-sdk-linux
     android_sdk_dependency_packages:
       - "libncurses5" #libncurses5:i386
-      - "libstdc++6" #libstdc++6:i386
+#      - "libstdc++6" #libstdc++6:i386
+      - "lib32stdc++6"
       - "zlib1g" #zlib1g:i386
+      - "lib32z1"
       - "imagemagick"
       - "expect"
       - "ant"
