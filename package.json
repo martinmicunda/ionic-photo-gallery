@@ -1,6 +1,6 @@
 {
     "name": "ionic-photo-gallery-skeleton",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "description": "A skeleton project for ionic-photo-gallery application.",
     "author": {
         "name": "Martin Micunda",
@@ -16,14 +16,14 @@
         "url": "https://github.com/martinmicunda/ionic-photo-gallery/tree/heroku"
     },
     "dependencies": {
-        "ionic-photo-gallery-server": "0.0.1"
+        "ionic-photo-gallery-server": "0.0.2"
     },
     "license": {
         "type": "MIT",
         "url": "https://github.com/martinmicunda/ionic-photo-gallery/master/LICENSE"
     },
     "engines": {
-        "node": ">=0.10",
+        "node": ">=0.10.x",
         "npm": ">=2.x"
     }
 }
