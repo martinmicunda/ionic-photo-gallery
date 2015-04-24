@@ -18,6 +18,7 @@
   },
   "addons": [
     "mongolab",
+    "redistogo:nano",
     "logentries"
   ]
 }
