@@ -16,7 +16,7 @@
         "url": "https://github.com/martinmicunda/ionic-photo-gallery/tree/heroku"
     },
     "dependencies": {
-        "ionic-photo-gallery-server": "0.0.5"
+        "ionic-photo-gallery-server": "0.0.6"
     },
     "license": {
         "type": "MIT",
