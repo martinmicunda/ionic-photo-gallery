@@ -41,11 +41,13 @@ if (process.env.REDISTOGO_URL) {
     var rtg = require('url').parse(process.env.REDISTOGO_URL);
     process.env.REDIS_HOST = rtg.hostname;
     process.env.REDIS_PORT = rtg.port;
+    process.env.REDIS_AUTH = rtg.auth.split(":")[1];
 }
 config.redis = {
     isAvailable: process.env.IS_REDIS_AVAILABLE || true,
     host: process.env.REDIS_HOST || '127.0.0.1',
     port: process.env.REDIS_PORT || 6379,
+    auth: process.env.REDIS_AUTH || '',
     options: {}
 };
 
