@@ -16,14 +16,14 @@
         "url": "https://github.com/martinmicunda/ionic-photo-gallery/tree/heroku"
     },
     "dependencies": {
-        "ionic-photo-gallery-server": "0.0.4"
+        "ionic-photo-gallery-server": "0.0.5"
     },
     "license": {
         "type": "MIT",
         "url": "https://github.com/martinmicunda/ionic-photo-gallery/master/LICENSE"
     },
     "engines": {
-        "node": ">=0.10.x",
+        "node": ">=0.12.2",
         "npm": ">=2.x"
     }
 }
