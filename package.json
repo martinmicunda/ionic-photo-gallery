@@ -13,7 +13,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com/martinmicunda/ionic-photo-gallery#heroku"
+        "url": "https://github.com/martinmicunda/ionic-photo-gallery/tree/heroku"
     },
     "dependencies": {
         "ionic-photo-gallery-server": "0.0.1"
