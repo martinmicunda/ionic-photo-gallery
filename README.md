@@ -34,18 +34,18 @@ A hybrid app with authentication that allows registered users view a gallery of 
 | [Cordova](https://cordova.apache.org/) <img src="https://cordova.apache.org/images/cordova_256.png" height="35" width="45" /> | [Redis](http://redis.io/) <img src="http://upload.wikimedia.org/wikipedia/en/thumb/6/6b/Redis_Logo.svg/467px-Redis_Logo.svg.png?v=2&s=30" height="35" width="125"> | 
 
 ## Architecture Diagram
-###<a name="diagram-development"></a>Development
+### <a name="diagram-development"></a>Development
 ![Ionic Photo Gallery Development Architecture Diagram](ionic-photo-gallery.jpg "Ionic Photo Gallery Development Architecture Diagram")
 
-##<a name="installation-and-configuration"></a> Installation & Configuration
-###<a name="platform-and-tools"></a> Platform & Tools
+## <a name="installation-and-configuration"></a> Installation & Configuration
+### <a name="platform-and-tools"></a> Platform & Tools
 You need to have installed follow tools on your machine:
 
 - [Virtualbox](https://www.virtualbox.org/wiki/Downloads) 4.3.16+
 - [Vagrant](http://www.vagrantup.com/downloads.html) 1.6.2+
 - [Ansible](http://docs.ansible.com/intro_installation.html) 1.7.0+
 
-###<a name="installation"></a> Installation
+### <a name="installation"></a> Installation
 
 **1.** Clone main repository:
 ```bash
@@ -135,7 +135,7 @@ $ npm start
 ```
 Open up your browser and navigate to [http://127.0.0.1:8100](http://127.0.0.1:8100) and you should see ionic app up and running.
 
-##<a name="building-for-ios"></a> Building for iOS
+## <a name="building-for-ios"></a> Building for iOS
 **1.** ssh into box:
 ```bash
 $ vagrant ssh
@@ -153,7 +153,7 @@ $ ionic build ios
 
 **5.** In [Xcode](https://developer.apple.com/xcode/), run the application on a device connected to your computer or in the iOS emulator.
 
-##<a name="building-for-android"></a> Building for Android
+## <a name="building-for-android"></a> Building for Android
 **1.** ssh into box:
 ```bash
 $ vagrant ssh
@@ -240,7 +240,7 @@ $ bash bin/ansible-uninstall-roles.sh
 ```bash
 $ vagrant box remove trusty64
 ```
-###What if I want a fresh install?
+### What if I want a fresh install?
 If you wish to destroy the `default` virtual boxe to make sure you have a fresh start, you can do these steps:
 ```bash
  $ vagrant destroy 
