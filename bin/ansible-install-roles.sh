@@ -8,5 +8,5 @@ ansible-galaxy install martinmicunda.common \
                        Stouts.mongodb \
                        DavidWittman.redis \
                        williamyeh.oracle-java \
-                       nickpack.android-sdk \
+                       nickpack.android_sdk \
                        --force

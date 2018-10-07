@@ -8,4 +8,4 @@ ansible-galaxy remove martinmicunda.common \
                       Stouts.mongodb \
                       DavidWittman.redis \
                       williamyeh.oracle-java \
-                      nickpack.android-sdk
+                      nickpack.android_sdk
