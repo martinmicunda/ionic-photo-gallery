@@ -49,7 +49,7 @@ You need to have installed follow tools on your machine:
 
 **1.** Clone main repository:
 ```bash
-$ git clone git@github.com:martinmicunda/ionic-photo-gallery.git 
+$ git clone https://github.com/martinmicunda/ionic-photo-gallery.git
 $ cd ionic-photo-gallery
 ```
 
