@@ -10,7 +10,7 @@
     - Stouts.mongodb
     - DavidWittman.redis
     - williamyeh.oracle-java
-    - nickp666.android-sdk
+    - nickpack.android_sdk
   vars:
     java_version: 7
     android_sdk_download_location: http://dl.google.com/android/android-sdk_r24.1.2-linux.tgz
